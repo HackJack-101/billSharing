@@ -21,7 +21,7 @@ app.use("/assets", express.static("assets"));
 app.use("/partials", express.static("partials"));
 
 // Start server
-var server = app.listen(3001, function () {
+var server = app.listen(3000, function () {
     var host = server.address().address;
     var port = server.address().port;
     console.log('Server listening at http://%s:%s', host, port);
