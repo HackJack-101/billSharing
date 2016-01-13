@@ -1,0 +1,32 @@
+{
+    "name": "billSharing",
+    "version": "0.0.1",
+    "description": "An example module to illustrate the usage of a package.json",
+    "author": "Jean",
+    "contributors": [{
+            "name": "Sylain"
+        }, {
+            "name": "Baptiste"
+        }],
+    "scripts": {
+        "start": "node server/app.js",
+        "postinstall": "node server/postinstall.js && cd client/ && bower install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Jack3113/billSharing"
+    },
+    "bugs": {
+        "url": "https://github.com/Jack3113/billSharing/issues"
+    },
+    "dependencies": {
+        "express": "^4.11.1",
+        "body-parser": "^1.14.1",
+        "bower": "^1.3.2"
+    },
+    "engines": {
+        "node": "*"
+    },
+    "private": true,
+    "license": "None"
+}

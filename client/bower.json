@@ -1,0 +1,30 @@
+{
+    "name": "billSharing",
+    "authors": [
+        "Sylvain",
+        "Baptiste",
+        "Jean"
+    ],
+    "description": "Share your bills with your friends",
+    "main": "index.html",
+    "moduleType": [
+        "es6",
+        "node"
+    ],
+    "license": "None",
+    "homepage": "",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "angular-material": "master",
+        "angular-route": "~1.4.7",
+        "angular-messages": "~1.4.7",
+        "angular-ui": "~0.4.0"
+    }
+}
