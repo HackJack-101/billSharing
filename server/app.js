@@ -13,8 +13,8 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
-app.use(express.static("client"));
-app.use("/bower_components", express.static("bower_components"));
+app.use(express.static(__dirname + "/../client"));
+app.use("/bower_components", express.static("/bower_components"));
 app.use("/js", express.static("js"));
 app.use("/design", express.static("design"));
 app.use("/assets", express.static("assets"));

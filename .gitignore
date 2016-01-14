@@ -29,3 +29,4 @@ node_modules
 /client/bower_components/
 nbproject/project.properties
 nbproject/project.xml
+.project
