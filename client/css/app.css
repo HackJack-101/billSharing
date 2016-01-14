@@ -1,0 +1,62 @@
+body {
+	height: 100%;
+	padding-top: 0;
+}
+
+.main-container {
+	height: 100%;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+	background-color: #2980b9;
+}
+
+md-menu-bar md-menu.md-open > button {
+	background-color: #3498db;
+}
+
+md-content {
+	width: 980px;
+	height: 100%;
+	margin-left: auto;
+ 	margin-right: auto;
+ 	padding-left: 15px;
+    padding-right: 15px;
+	background-color: #ecf0f1;
+}
+
+.md-toolbar-tools {
+	width: 980px;
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+.title-form{
+	color: #2980b9;
+	text-align: center;
+}
+
+/** LOGIN **/
+.login-form-button, .register-button {
+ 	background-color: white;
+}
+/** END LOGIN **/
+
+/** REGISTER **/
+.pen-icon{
+    animation-name: ckw;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    display: inline-block;
+}
+
+@keyframes ckw {
+    0% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(270deg);
+    }
+}
+/** END REGISTER **/
