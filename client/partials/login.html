@@ -4,7 +4,7 @@
 <form name="loginForm" ng-submit="submit()">
   <md-input-container class="md-block">
      <label>Adresse mail :</label>
-     <md-icon md-svg-src="img/mail.svg"></md-icon>
+     <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
      <input md-maxlength="250" type="email" name="mail" ng-model="login.mail" ng-required="true">
      <div ng-messages="loginForm.mail.$error">
        <div ng-message="required">Adresse mail manquante.</div>
@@ -12,27 +12,27 @@
    </md-input-container>
    <md-input-container class="md-block">
      <label>Mot de passe :</label>
-     <md-icon md-svg-src="img/lock.svg"></md-icon>
+     <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
      <input md-maxlength="250" type="password" name="password" ng-model="login.password" ng-required="true">
      <div ng-messages="loginForm.password.$error">
        <div ng-message="required">Mot de passe manquant.</div>
      </div>
    </md-input-container>
    <div layout="row" layout-align="center center">
-	 <md-button class="md-primary login-form-button" ng-disabled="loginForm.$invalid" style="background-color: white;">
-	   <md-icon md-svg-src="img/check.svg" style="color: #2bbe69;"></md-icon>
-	   <span style="color: #2bbe69;">Valider</span>
+	 <md-button class="md-primary login-form-button" ng-disabled="loginForm.$invalid" style="background-color: #2bbe69;">
+	   <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
+	   <span style="color: white; font-size:large;">Valider</span>
 	 </md-button>
    </div>
 </form>
 
 <br />
 
-<h2 class="title-login">Pas encore de compte ?</h2>
+<h2 class="title-form">Pas encore de compte ?</h2>
 <div layout="row" layout-align="center center">
-  <md-button class="md-primary register-button" style="color: #2980b9;" ng-click="">
-	<md-icon md-svg-src="img/familiar.svg"></md-icon>
-	<span>S'enregistrer</span>
+  <md-button class="md-primary register-button" style="background-color: #2980b9; margin-top: -5px;" ng-click="">
+	<md-icon md-svg-src="img/familiar.svg" style="color: white;"></md-icon>
+	<span style="color: white;">S'enregistrer</span>
   </md-button>
 </div>
 

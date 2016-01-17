@@ -5,7 +5,7 @@
   <div layout-gt-sm="row">
     <md-input-container class="md-block" flex-gt-sm>
       <label>Prénom :</label>
-      <md-icon class="pen-icon" md-svg-src="img/pencil.svg"></md-icon>
+      <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
       <input md-maxlength="250" type="text" name="firstname" ng-model="register.firstname" ng-required="true">
       <div ng-messages="registerForm.firstname.$error">
         <div ng-message="required">Prénom manquant.</div>
@@ -13,7 +13,7 @@
     </md-input-container>
     <md-input-container class="md-block" flex-gt-sm>
       <label>Nom :</label>
-      <md-icon class="pen-icon" md-svg-src="img/pencil.svg"></md-icon>
+      <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
       <input md-maxlength="250" type="text" name="lastname" ng-model="register.lastname" ng-required="true">
       <div ng-messages="registerForm.lastname.$error">
         <div ng-message="required">Nom manquant.</div>
@@ -23,7 +23,7 @@
   <div layout-gt-sm="row">
 	  <md-input-container class="md-block" flex-gt-sm>
 	     <label>Adresse mail :</label>
-	     <md-icon md-svg-src="img/mail.svg"></md-icon>
+	     <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
 	     <input md-maxlength="250" type="email" name="mail" ng-model="register.mail" ng-required="true">
 	     <div ng-messages="registerForm.mail.$error">
 	       <div ng-message="required">Adresse mail manquante.</div>
@@ -31,7 +31,7 @@
 	   </md-input-container>
 	   <md-input-container class="md-block" flex-gt-sm>
 	     <label>Numéro de téléphone :</label>
-	     <md-icon md-svg-src="img/smartphone.svg"></md-icon>
+	     <md-icon md-svg-src="img/smartphone.svg" style="color: #2980b9;"></md-icon>
 	     <input md-maxlength="10" type="text" name="number" ng-model="register.number" ng-required="false">
 	     <div ng-messages="registerForm.number.$error">
 	       <div ng-message="md-maxlength">Les 10 chiffres doivent se suivre : XXXXXXXXXX</div>
@@ -41,7 +41,7 @@
    <div layout-gt-sm="row">
     <md-input-container class="md-block" flex-gt-sm>
       <label>Mot de passe :</label>
-      <md-icon md-svg-src="img/lock.svg"></md-icon>
+      <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
       <input md-maxlength="250" type="password" name="password" ng-model="register.password" ng-required="true">
       <div ng-messages="registerForm.password.$error">
         <div ng-message="required">Mot de passe manquant.</div>
@@ -49,7 +49,7 @@
     </md-input-container>
     <md-input-container class="md-block" flex-gt-sm>
       <label>Confirmez le mot de passe :</label>
-      <md-icon md-svg-src="img/lock.svg"></md-icon>
+      <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
       <input md-maxlength="250" type="password" name="confirmPassword" ng-model="register.confirmPassword" ng-required="true">
       <div ng-messages="registerForm.confirmPassword.$error">
         <div ng-message="required">Veuillez retaper le mot de passe.</div>
@@ -57,9 +57,9 @@
     </md-input-container>
   </div>
   <div layout="row" layout-align="center center">
-    <md-button class="md-primary register-form-button" ng-disabled="registerForm.$invalid" style="background-color: white;">
-	  <md-icon md-svg-src="img/check.svg" style="color: #2bbe69;"></md-icon>
-	  <span style="color: #2bbe69;">Valider</span>
+    <md-button class="md-primary register-form-button" ng-disabled="registerForm.$invalid" style="background-color: #2bbe69;">
+	  <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
+	  <span style="color: white; font-size:large;">Valider</span>
 	</md-button>
   </div>
 </form>
