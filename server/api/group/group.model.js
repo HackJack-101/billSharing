@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var GroupSchema = new mongoose.Schema({
 	name: String,
-	fastDept: Boolean,
+	fastDept: {type: Boolean, default: false},
 	friends: [String],
 	updated: {type: Date, default: Date.now}
 });
