@@ -11,14 +11,14 @@
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
+	    <md-button class="shortcut-button" ng-click="ctrl.goToRecentActivities()" >
 	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Activités récentes</span>
 	    </md-button>
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-click="ctrl.goToAllBills()">
+	    <md-button class="shortcut-button" style="background-color: #ecf0f1;" ng-disabled="true">
 	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Vos transactions</span>
 	    </md-button>
@@ -27,12 +27,25 @@
   </div>
   <div id="contents-panel">
     <div layout="row" layout-align="center center">
-	    <h2 style="color: #2980b9;">Vos activités récentes</h2>
+	    <h2 style="color: #2980b9;">Toutes vos transactions</h2>
     </div>
     
     <md-list style="width: 100%;">
-      <md-list-item style="background-color: white;">
-		<h4> {{ activite.texte }} </h4>
+      <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;">Janvier 2016</md-subheader>
+      <md-list-item class="md-3-line" style="background-color: white;">
+		<div class="md-list-item-text" layout="column">
+          <h3>{{ transaction.texte }}ouaisnnfdgjlkfjglk dkljgkfjljjdjgrfg r rt rt g te ekldgj flkjf glkjdg lkdf gjlkj g</h3>
+          <h4>{{ transaction.date }}12/09/1992</h4>
+          <p>{{ transaction.groupe }}theFamous</p>
+        </div>
+        <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
+          <p style="color: #409ad5;">montant</p>
+          <h4>{{ transaction.montant }}€</h4>
+        </div>
+        <div class="md-2-line md-list-item-text" layout="column">
+          <p style="color: #409ad5;">on vous doit</p>
+          <h4 style="color: 2bbe69;">{{ transaction.montantDu }}€</h4>
+        </div>
 	  </md-list-item>
       <md-divider></md-divider>
     </md-list>
