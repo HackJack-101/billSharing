@@ -7,8 +7,8 @@ var BillSchema = new mongoose.Schema({
 	description: String,
 	owner: String,
 	group: String,
-        currency: String,
-        value: Number,
+	currency: String,
+	value: Number,
 	updated: {type: Date, default: Date.now}
 });
 
