@@ -36,6 +36,7 @@ md-content {
 	text-align: center;
 }
 
+
 /** LOGIN **/
 .login-form-button, .register-button {
  	background-color: white;
@@ -60,3 +61,47 @@ md-content {
     }
 }
 /** END REGISTER **/
+
+/** HOME PAGE **/
+#main-panel {
+	width: 100%;
+	height: 100%
+}
+
+#shortcuts-panel {
+	width: 23%;
+	height: 100%;
+	top: 0;
+	left: 0 !important;
+	margin-left: -15px;
+	background-color: ghostwhite;
+}
+
+.shortcut-button {
+	width: 100%; 
+	text-align: left;
+}
+
+#contents-panel {
+	width: 75%;
+	height: 100%;
+	top: 0;
+	right: 0 !important;
+	padding-right: 15px;
+	position: absolute;
+}
+
+#dashboard-left-panel {
+	width: 48%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+#dashboard-right-panel {
+	width: 48%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	position: absolute;
+}

@@ -1,1 +1,71 @@
-<h2>HELLO WORLD</h2>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div id="main-panel">
+  <div id="shortcuts-panel">
+	<md-list style="">
+	  <md-list-item class="md-1-line">
+	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
+	      <md-icon md-svg-src="img/dashboard.svg" style="color: #2980b9;"></md-icon>
+	      <span style="color: #2980b9;">Dashboard</span>
+	    </md-button>
+	  </md-list-item>
+	  <md-divider></md-divider>
+	  <md-list-item class="md-1-line">
+	    <md-button class="shortcut-button" ng-click="ctrl.goToActivitesRecentes()">
+	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
+	      <span style="color: #2980b9;">Activités récentes</span>
+	    </md-button>
+	  </md-list-item>
+    </md-list>
+  </div>
+  <div id="contents-panel">
+    <div layout="row" layout-align="center center">
+	    <h2 style="color: #2980b9;">Votre résumé billSharing</h2>
+    </div>
+    
+    <md-grid-list
+        md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px">
+	  <md-grid-tile md-colspan="2" md-colspan-sm="2" style="background-color: #d3d3d3;">
+	    <h4>Total transaction : {{ctrl.total}}€</h4>
+	  </md-grid-tile>
+	  <md-grid-tile md-colspan="2" md-colspan-sm="2" style="background-color: #d3d3d3;">
+	    <h4>On vous doit : {{ctrl.totalRembourse}}€</h4>
+	  </md-grid-tile>
+	  <md-grid-tile md-colspan="2" md-colspan-sm="2" style="background-color: #d3d3d3;">
+	    <h4>Vous devez : {{ctrl.totalEmprunte}}€</h4>
+	  </md-grid-tile>
+	</md-grid-list>
+	
+	<md-grid-list
+        md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px">
+	  <md-grid-tile md-colspan="3" md-colspan-sm="3">
+      <md-list style="width: 100%;">
+        <md-subheader class="md-no-sticky">Liste des remboursements :</md-subheader>
+		<md-list-item style="background-color: white;">
+		  <img alt="{{ remboursement.name }}" ng-src="{{ remboursement.img }}" class="md-avatar" />
+		  <h4> {{ remboursement.name }} </h4>
+		  <p> vous doit : </p>
+		  <span class="md-secondary md-hue-3"> {{remboursement.montant}} €</span>
+		</md-list-item>
+		<md-divider></md-divider>
+      </md-list>
+    </md-grid-tile>
+	
+	<md-grid-tile md-colspan="3" md-colspan-sm="3">
+	  <md-list style="width: 100%;">
+        <md-subheader class="md-no-sticky">Liste des emprunts :</md-subheader>
+		<md-list-item style="background-color: white;">
+		  <img alt="{{ emprunt.name }}" ng-src="{{ emprunt.img }}" class="md-avatar" />
+		  <h4> {{ emprunt.name }}, </h4>
+		  <p> vous lui devez : </p>
+		  <span class="md-secondary md-hue-3"> {{emprunt.montant}} €</span>
+		</md-list-item>
+		<md-divider></md-divider>
+      </md-list>
+	</md-grid-tile>
+  </div>
+</div>
