@@ -11,7 +11,7 @@
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
+	    <md-button class="shortcut-button" href="/#/recentactivity">
 	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Activités récentes</span>
 	    </md-button>
@@ -40,7 +40,7 @@
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/allfriends">
+	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
 	      <md-icon md-svg-src="img/friends.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Vos amis</span>
 	    </md-button>
@@ -49,12 +49,20 @@
   </div>
   <div id="contents-panel">
     <div layout="row" layout-align="center center">
-	    <h2 style="color: #2980b9;">Vos activités récentes</h2>
+	    <h2 style="color: #2980b9;">Votre liste d'amis</h2>
     </div>
     
+    <md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Vous cherchez quelqu'un ?</label>
+        <input id="search-friend" ng-model="query"/>
+      </md-input-container>
+    </md-content>
+    
     <md-list style="width: 100%;">
-      <md-list-item style="background-color: white;">
-		<h4> {{ activite.texte }} </h4>
+	  <md-list-item class="md-2-line" style="background-color: white;" ng-click="goToUser({{ami.id}})"> <!-- ng-repeat="ami in ctrl.listeAmis | filter : query | orderBy : prenom" -->
+		<img alt="{{ ami.prenom }} {{ ami.nom }}" ng-src="{{ ami.img }}" class="md-avatar" />
+		<h4>{{ ami.prenom }}Test {{ ami.nom }} {{ ami.type }} : {{ ami.montant }}€</h4>
 	  </md-list-item>
       <md-divider></md-divider>
     </md-list>

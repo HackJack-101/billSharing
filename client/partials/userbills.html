@@ -4,35 +4,58 @@
   <div id="shortcuts-panel">
 	<md-list style="">
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-click="ctrl.goToDashboard()">
+	    <md-button class="shortcut-button" href="/#/">
 	      <md-icon md-svg-src="img/dashboard.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Dashboard</span>
 	    </md-button>
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-click="ctrl.goToRecentActivities()" >
+	    <md-button class="shortcut-button" href="/#/recentactivity">
 	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Activités récentes</span>
 	    </md-button>
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" style="background-color: #ecf0f1;" ng-disabled="true">
-	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
+	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
+	      <md-icon md-svg-src="img/money.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Vos transactions</span>
+	    </md-button>
+	  </md-list-item>
+	  <md-divider></md-divider>
+	  <md-list-item class="md-1-line">
+	    <md-button class="shortcut-button" href="/#/allgroups">
+	      <md-icon md-svg-src="img/network.svg" style="color: #2980b9;"></md-icon>
+	      <span style="color: #2980b9;">Vos groupes</span>
+	    </md-button>
+	  </md-list-item>
+	  <md-list-item class="md-1-line">
+	    <md-list>
+          <md-list-item style="margin-top: -20px;" href="/#/activitygrp/{{groupe.id}})">
+		    <span style="width: 100%; color: #2e8ece;"> {{ groupe.texte }}test </span>
+	      </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+	  </md-list-item>
+	  <md-divider></md-divider>
+	  <md-list-item class="md-1-line">
+	    <md-button class="shortcut-button" href="/#/allfriends">
+	      <md-icon md-svg-src="img/friends.svg" style="color: #2980b9;"></md-icon>
+	      <span style="color: #2980b9;">Vos amis</span>
 	    </md-button>
 	  </md-list-item>
     </md-list>
   </div>
-  <div id="contents-panel">
+ 
+  <div id="contents-panel" ng-controller="AppCtrlT">
     <div layout="row" layout-align="center center">
 	    <h2 style="color: #2980b9;">Toutes vos transactions</h2>
     </div>
     
     <md-list style="width: 100%;">
       <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;">Janvier 2016</md-subheader>
-      <md-list-item class="md-3-line" style="background-color: white;">
+      <md-list-item class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
 		<div class="md-list-item-text" layout="column">
           <h3>{{ transaction.texte }}ouaisnnfdgjlkfjglk dkljgkfjljjdjgrfg r rt rt g te ekldgj flkjf glkjdg lkdf gjlkj g</h3>
           <h4>{{ transaction.date }}12/09/1992</h4>
@@ -50,4 +73,39 @@
       <md-divider></md-divider>
     </md-list>
   </div>
+  
 </div>
+
+<script>
+var app = angular.module('app', ['ngRoute', 'ngMaterial']);
+app.controller('AppCtrlT', function($scope, $mdDialog, $mdMedia) {
+  $scope.status = '  ';
+  $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+  $scope.voirDetailsTransaction = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    // Modal dialogs should fully cover application
+    // to prevent interaction outside of dialog
+    $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#contents-panel')))
+        .clickOutsideToClose(true)
+        .title('This is an alert title')
+        .textContent('You can specify some description text in here.')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+  };
+});
+  function DialogController($scope, $mdDialog) {
+	  $scope.delete = function() {
+	    $mdDialog.hide();
+	  };
+	  $scope.cancel = function() {
+	    $mdDialog.cancel();
+	  };
+	  $scope.save = function() {
+	    $mdDialog.hide();
+	  };
+	}
+</script>

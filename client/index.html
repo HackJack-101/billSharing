@@ -12,7 +12,7 @@
        	<md-toolbar>
 	      <div class="md-toolbar-tools">
 	        <h1>
-	          <a href="/"><span>billSharing</span></a>
+	          <a href="/#/"><span>billSharing</span></a>
 	        </h1>
 	        
 	        <span flex></span>
@@ -25,25 +25,19 @@
                 </md-button>
 	            <md-menu-content width="4">
 		          <md-menu-item>
-		            <md-button ng-click="ctrl.redial($event)">
+		            <md-button href="/#/account">
 		              <md-icon md-svg-src="img/gear.svg" style="color: #2980b9;"></md-icon>
 		              Mon compte
 		            </md-button>
 		          </md-menu-item>
 		          <md-menu-item>
-		            <md-button ng-click="ctrl.redial($event)">
-		              <md-icon md-svg-src="img/list.svg" style="color: #2980b9;"></md-icon>
-		              Mes activitées récentes
-		            </md-button>
-		          </md-menu-item>
-		          <md-menu-item>
-		            <md-button ng-click="ctrl.redial($event)">
+		            <md-button href="/#/addgroup">
 		              <md-icon md-svg-src="img/group.svg" style="color: #2980b9;"></md-icon>
 		              Créer un groupe
 		            </md-button>
 		          </md-menu-item> 
 		          <md-menu-item>
-		            <md-button ng-click="ctrl.redial($event)">
+		            <md-button ng-click="ctrl.logoff()">
 		              <md-icon md-svg-src="img/power.svg" style="color: #2980b9;"></md-icon>
 		              Se déconnecter
 		            </md-button>

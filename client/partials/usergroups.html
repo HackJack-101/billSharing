@@ -11,7 +11,7 @@
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
+	    <md-button class="shortcut-button" href="/#/recentactivity">
 	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Activités récentes</span>
 	    </md-button>
@@ -25,7 +25,7 @@
 	  </md-list-item>
 	  <md-divider></md-divider>
 	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/allgroups">
+	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
 	      <md-icon md-svg-src="img/network.svg" style="color: #2980b9;"></md-icon>
 	      <span style="color: #2980b9;">Vos groupes</span>
 	    </md-button>
@@ -49,12 +49,16 @@
   </div>
   <div id="contents-panel">
     <div layout="row" layout-align="center center">
-	    <h2 style="color: #2980b9;">Vos activités récentes</h2>
+	    <h2 style="color: #2980b9;">Vos groupes</h2>
     </div>
     
     <md-list style="width: 100%;">
-      <md-list-item style="background-color: white;">
-		<h4> {{ activite.texte }} </h4>
+      <md-list-item class="md-1-line" style="background-color: white;" ng-click="goToGroup({{groupe.id}})">
+		<h4>{{ groupe.nom }}te</h4>
+	  </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item class="md-1-line" style="background-color: white;" ng-click="goToGroup({{groupe.id}})">
+		<h4>{{ groupe.nom }}st</h4>
 	  </md-list-item>
       <md-divider></md-divider>
     </md-list>
