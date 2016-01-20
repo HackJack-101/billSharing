@@ -31,11 +31,11 @@
 	    </md-button>
 	  </md-list-item>
 	  <md-list-item class="md-1-line">
-	    <md-list>
-          <md-list-item style="margin-top: -20px;" href="/#/activitygrp/{{groupe.id}})">
-		    <span style="width: 100%; color: #2e8ece;"> {{ groupe.texte }}test </span>
+	    <md-list style="width: 100%;">
+          <md-list-item style="width: 100%;" href="/#/activitygrp/{{groupe.id}}">
+            <md-icon md-svg-src="img/arrow.svg" style="color: #2980b9;"></md-icon>
+		    <span style="width: 100%; color: #2e8ece;"> {{ groupe.texte }}test dze dze edzez fzf ze r </span>
 	      </md-list-item>
-          <md-divider></md-divider>
         </md-list>
 	  </md-list-item>
 	  <md-divider></md-divider>
@@ -49,12 +49,17 @@
   </div>
  
   <div id="contents-panel" ng-controller="AppCtrlT">
-    <div layout="row" layout-align="center center">
-	    <h2 style="color: #2980b9;">Toutes vos transactions</h2>
+    <div layout="row" layout-align="center center" style="text-align: center;">
+	    <h2 style="color: #2980b9;">Vos transactions</h2>
     </div>
     
+    <md-button class="md-primary addGroupFriend-form-button" style="color: #2980b9;" href="/#/addbill">
+      <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
+      <span style="color: #2980b9; font-size:smaller;">Ajouter une nouvelle transaction</span>
+    </md-button>
+    
     <md-list style="width: 100%;">
-      <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;">Janvier 2016</md-subheader>
+      <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;"><span>Janvier 2016</span></md-subheader>
       <md-list-item class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
 		<div class="md-list-item-text" layout="column">
           <h3>{{ transaction.texte }}ouaisnnfdgjlkfjglk dkljgkfjljjdjgrfg r rt rt g te ekldgj flkjf glkjdg lkdf gjlkj g</h3>
