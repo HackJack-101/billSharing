@@ -4,7 +4,7 @@ var User = require('./user.model');
 
 exports.get = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	User.finUseryId(req.params.id, function (err, data) {
+	User.findById(req.params.id, function (err, data) {
 		if (err) {
 			res.status(500).send(err);
 		} else {

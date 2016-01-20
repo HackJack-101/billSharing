@@ -7,8 +7,8 @@ var PaymentSchema = new mongoose.Schema({
 	from: String,
 	to: String,
 	group: String,
-        currency: String,
-        value: Number,
+	currency: String,
+	value: Number,
 	updated: {type: Date, default: Date.now}
 });
 

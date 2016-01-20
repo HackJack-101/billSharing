@@ -1,10 +1,22 @@
 'use strict';
 
 var Group = require('./group.model');
+var Bill = require('./../bill/bill.model');
 
 exports.get = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	Group.finGroupyId(req.params.id, function (err, data) {
+	Group.findById(req.params.id, function (err, data) {
+		if (err) {
+			res.status(500).send(err);
+		} else {
+			res.send(JSON.stringify(data));
+		}
+	});
+};
+
+exports.getBills = function (req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	Bill.find({group: req.params.id}, function (err, data) {
 		if (err) {
 			res.status(500).send(err);
 		} else {

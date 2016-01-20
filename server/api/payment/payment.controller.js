@@ -4,7 +4,7 @@ var Payment = require('./payment.model');
 
 exports.get = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	Payment.finPaymentyId(req.params.id, function (err, data) {
+	Payment.findById(req.params.id, function (err, data) {
 		if (err) {
 			res.status(500).send(err);
 		} else {

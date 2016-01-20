@@ -7,6 +7,7 @@ var router = express.Router();
 
 router.get('/', controller.getAll);
 router.get('/:id', controller.get);
+router.get('/:id/bills', controller.getBills);
 router.post('/', controller.add);
 router.put('/:id', controller.edit);
 router.delete('/:id', controller.delete);

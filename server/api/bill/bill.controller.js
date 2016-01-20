@@ -4,7 +4,7 @@ var Bill = require('./bill.model');
 
 exports.get = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	Bill.finBillyId(req.params.id, function (err, data) {
+	Bill.findById(req.params.id, function (err, data) {
 		if (err) {
 			res.status(500).send(err);
 		} else {
