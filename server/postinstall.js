@@ -78,7 +78,7 @@ alice.save(function (err, res) {
                 var hostel = new Bill(
                         {
                             name: "Auberge de jeunesse",
-                            description: "Un nuit en auberge de jeunesse payée par Bob",
+                            description: "Une nuit en auberge de jeunesse payée par Bob",
                             owner: bobID,
                             group: aliceBobID,
                             currency: "EUR",
