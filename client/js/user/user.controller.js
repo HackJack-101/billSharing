@@ -30,7 +30,7 @@ angular.module('app.controller.user', ['app'])
                             console.log('Error: ' + data);
                         });
             };
-
+            
             $scope.getPaymentsByUserId = function (id) {
                 User.getPaymentsByUserId(id).success(function (data) {
                     $scope.groups = data;
