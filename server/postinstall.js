@@ -138,6 +138,7 @@ alice.save(function (err, res) {
     });
 });
 
+var dexterAllanJennyID;
 
 //Dexter
 dexter.save(function (err, res) {
@@ -167,7 +168,7 @@ dexter.save(function (err, res) {
             if (err)
                 throw err;
             console.log(res);
-            var dexterAllanJennyID = res["_id"];
+            dexterAllanJennyID = res["_id"];
             var billard = new Bill(
                     {
                         name: "Billard",
@@ -175,7 +176,7 @@ dexter.save(function (err, res) {
                         owner: dexterID,
                         group: dexterAllanJennyID,
                         currency: "EUR",
-                        value: 25
+                        value: 33
                     }
             );
             billard.save(function (err, res) {
@@ -186,10 +187,10 @@ dexter.save(function (err, res) {
                         {
                             name: "Piscine",
                             description: "Une aprem piscine payée par Allan",
-                            owner: allanID,
+                            owner: dexterID,
                             group: dexterAllanJennyID,
                             currency: "EUR",
-                            value: 20
+                            value: 21
                         }
                 );
                 piscine.save(function (err, res) {
@@ -204,4 +205,76 @@ dexter.save(function (err, res) {
         });
     });
 });
+});
+
+// Billard Jenny -> Dexter
+var payment1 = new Payment(
+        {
+            description: "Remboursement du billard",
+            from: jennyID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 11
+        }
+);
+
+payment1.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
+});
+
+// Billard Allan -> Dexter
+var payment2 = new Payment(
+        {
+            description: "Remboursement du billard",
+            from: allanID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 11
+        }
+);
+
+payment2.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
+});
+
+// Piscine Jenny -> Dexter
+var payment3 = new Payment(
+        {
+            description: "Remboursement de la Piscine",
+            from: jennyID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 7
+        }
+);
+
+payment3.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
+});
+
+// Piscine Allan -> Dexter
+var payment4 = new Payment(
+        {
+            description: "Remboursement de la Piscine",
+            from: allanID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 7
+        }
+);
+
+payment4.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
 });
