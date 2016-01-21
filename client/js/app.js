@@ -35,7 +35,7 @@ app.config(['$routeProvider',
                 }).
                 when('/activity', {
                     templateUrl: 'partials/user-activity.html',
-                    controller: ''
+                    controller: 'userActivityController'
                 }).
                 when('/bills', {
                     templateUrl: 'partials/user-bills.html',
