@@ -2,7 +2,7 @@
 
 <div id="main-panel">
     <div shortcuts id="shortcuts-panel"></div>
-    
+
     <div id="contents-panel">
         <div layout="row" layout-align="center center">
             <h2 style="color: #2980b9;">{{groupe.nom}} - Activités récentes</h2>
@@ -12,19 +12,19 @@
             <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;">Janvier 2016</md-subheader>
             <md-list-item class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
                 <div class="md-list-item-text" layout="column">
-                    <h3>{{ transaction.texte }}ouais</h3>
-                    <h4>{{ transaction.date }}12/09/1992</h4>
-                    <p>{{ transaction.groupe }}theFamous</p>
+                    <h3>{{ transaction.texte}}ouais</h3>
+                    <h4>{{ transaction.date}}12/09/1992</h4>
+                    <p>{{ transaction.groupe}}theFamous</p>
                 </div>
                 <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
                     <p style="color: #409ad5;">montant</p>
-                    <h4>{{ transaction.montant }}€</h4>
+                    <h4>{{ transaction.montant}}€</h4>
                 </div>
                 <div class="md-2-line md-list-item-text" layout="column">
                     <p style="color: #409ad5;">on vous doit</p>
-                    <h4 style="color: 2bbe69;">{{ transaction.montantDu }}€</h4>
+                    <h4 style="color: 2bbe69;">{{ transaction.montantDu}}€</h4>
                 </div>
-            <md-divider></md-divider>
+                <md-divider></md-divider>
             </md-list-item>
         </md-list>
     </div>

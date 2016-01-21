@@ -2,13 +2,13 @@
 
 <div id="main-panel">
     <div shortcuts id="shortcuts-panel"></div>
-    
+
     <div id="contents-panel">
         <div layout="row" layout-align="center center">
             <h2 style="color: #2980b9;">Votre liste d'amis</h2>
         </div>
 
-        <md-button class="md-primary" style="color: #2980b9;" href="/#/addfriend">
+        <md-button class="md-primary" style="color: #2980b9;" href="/#/friend">
             <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
             <span style="color: #2980b9; font-size:smaller;">Ajouter un ami</span>
         </md-button>
@@ -22,8 +22,8 @@
 
         <md-list style="width: 100%;" ng-controller="userController" ng-init="get('POUR_TESTER_METTRE_ID_EN_DUR')">
             <md-list-item ng-repeat="user.friend in user.friends" class="md-2-line" style="background-color: white;" ng-click="goToUser({{ami.id}})"> <!-- ng-repeat="ami in ctrl.listeAmis | filter : query | orderBy : prenom" -->
-                <img alt="{{ user.friend.firstName }} {{ user.friend.lastName }}" ng-src="{{ ami.img}}" class="md-avatar" />
-                    <h4>{{ user.friend.firstName }}Test {{ user.friend.lastName }} {{ ami.type }} : {{ ami.montant }}€</h4>
+                <img alt="{{ user.friend.firstName}} {{ user.friend.lastName}}" ng-src="{{ ami.img}}" class="md-avatar" />
+                <h4>{{ user.friend.firstName}}Test {{ user.friend.lastName}} {{ ami.type}} : {{ ami.montant}}€</h4>
             </md-list-item>
             <md-divider></md-divider>
         </md-list>

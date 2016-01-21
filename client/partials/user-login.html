@@ -10,12 +10,12 @@
         <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
         <input maxlength="250" type="email" name="email" ng-model="login.email" ng-pattern="/^.+@.+\..+$/" required>
         <div ng-messages="loginForm.email.$error">
-        	<div ng-message="pattern">Adresse non-conforme</div>
-        	<div ng-message="maxlength">Adresse mail trop longue</div>
+            <div ng-message="pattern">Adresse non-conforme</div>
+            <div ng-message="maxlength">Adresse mail trop longue</div>
             <div ng-message="required">Adresse mail manquante</div>
         </div>
     </md-input-container>
-    
+
     <md-input-container class="md-block">
         <label>Mot de passe :</label>
         <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
@@ -26,7 +26,7 @@
             <div ng-message="required">Mot de passe manquant</div>
         </div>
     </md-input-container>
-    
+
     <div layout="row" layout-align="center center">
         <md-button class="md-primary login-form-button" ng-disabled="loginForm.$invalid" type="submit" style="background-color: #2bbe69;">
             <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>

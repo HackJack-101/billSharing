@@ -2,15 +2,15 @@
 
 <div id="main-panel">
     <div shortcuts id="shortcuts-panel"></div>
-    
-    <div id="contents-panel" ng-controller="userController" ng-init="getGroupsByUserId('POUR_TESTER_METTRE_ID_EN_DUR')">
+
+    <div id="contents-panel">
         <div layout="row" layout-align="center center">
             <h2 style="color: #2980b9;">Vos groupes</h2>
         </div>
-        
+
         <md-list style="width: 100%;">
-            <md-list-item ng-repeat="group in groups" class="md-1-line" style="background-color: white;" ng-click="goToGroup({{group._id}})">
-                <h4>Nom : {{group.name}} id : {{group._id}}</h4>
+            <md-list-item ng-repeat="group in groups" class="md-1-line" style="background-color: white;" href="/#/groups/{{group._id}}">
+                <h4>{{group.name}}</h4>
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>

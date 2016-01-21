@@ -8,55 +8,61 @@ var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngCookies', 'ngMessag
     'app.controller.auth'
 ]);
 
+app.directive('shortcuts', function () {
+    return {
+        templateUrl: 'template/shortcuts.html'
+    };
+});
+
 app.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
                 when('/', {
-                    templateUrl: 'partials/home.html',
+                    templateUrl: 'partials/user-dashboard.html',
                     controller: 'userController'
                 }).
                 when('/login', {
-                    templateUrl: 'partials/login.html',
+                    templateUrl: 'partials/user-login.html',
                     controller: 'authController'
                 }).
                 when('/register', {
-                    templateUrl: 'partials/register.html',
+                    templateUrl: 'partials/user-register.html',
                     controller: ''
                 }).
                 when('/activity', {
-                    templateUrl: 'partials/recentactivity.html',
+                    templateUrl: 'partials/user-activity.html',
                     controller: ''
                 }).
                 when('/bills', {
-                    templateUrl: 'partials/userbills.html',
+                    templateUrl: 'partials/user-bills.html',
                     controller: ''
                 }).
                 when('/groups', {
-                    templateUrl: 'partials/usergroups.html',
+                    templateUrl: 'partials/user-groups.html',
                     controller: 'groupController'
                 }).
                 when('/group/:id', {
-                    templateUrl: 'partials/activitygroup.html',
+                    templateUrl: 'partials/group-activty.html',
                     controller: ''
                 }).
                 when('/friends', {
-                    templateUrl: 'partials/userfriends.html',
+                    templateUrl: 'partials/user-friends.html',
                     controller: ''
                 }).
-                when('/addgroup', {
-                    templateUrl: 'partials/addgroup.html',
+                when('/group/', {
+                    templateUrl: 'partials/group-add.html',
                     controller: ''
                 }).
-                when('/addbill', {
-                    templateUrl: 'partials/addbill.html',
+                when('/bill/', {
+                    templateUrl: 'partials/bill-add.html',
                     controller: ''
                 }).
-                when('/addfriend', {
-                    templateUrl: 'partials/addfriend.html',
+                when('/friend/', {
+                    templateUrl: 'partials/friend-add.html',
                     controller: ''
                 }).
                 when('/account', {
-                    templateUrl: 'partials/account.html',
+                    templateUrl: 'partials/user-account.html',
                     controller: ''
                 }).
                 otherwise({
