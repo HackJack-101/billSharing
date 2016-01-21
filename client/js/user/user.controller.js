@@ -38,6 +38,23 @@ angular.module('app.controller.user', ['app'])
                         });
             };
 
+            $scope.getFriendsByUserId = function (id) {
+
+                User.get(id).success(function (data) {
+                $scope.friends = [];
+
+                    // for each id in friends, it will get more information than only "id"
+                    for (var i = 0; i < data.friends.length; i++) {
+                        User.get(data._id).success(function (data2) {
+                            $scope.friends.push(data2);
+                        });
+                    }
+                })
+                        .error(function (data) {
+                            console.log('Error: ' + data);
+                        });
+            };
+
             $scope.add = function (user) {
                 User.add(user).success(function (data) {
                     $scope.response = data;
