@@ -35,7 +35,7 @@
             <md-grid-tile md-colspan="3" md-colspan-sm="3">
                 <md-list style="width: 100%;">
                     <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;">Liste des remboursements :</md-subheader>
-                    <md-list-item style="background-color: white;" ng-click="goToFriend({{ remboursement.idFriend}})">
+                    <md-list-item style="background-color: white;" ng-click="goToFriend(remboursement.idFriend)">
                         <img alt="{{ remboursement.name}}" ng-src="{{ remboursement.img}}" class="md-avatar" />
                         <h4> {{ remboursement.name}} </h4>
                         <p> vous doit : </p>
@@ -48,11 +48,11 @@
             <md-grid-tile md-colspan="3" md-colspan-sm="3">
                 <md-list style="width: 100%;">
                     <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;">Liste des emprunts :</md-subheader>
-                    <md-list-item style="background-color: white;" ng-click="goToFriend({{ emprunt.idFriend}})">
-                        <img alt="{{ emprunt.name}}" ng-src="{{ emprunt.img}}" class="md-avatar" />
-                        <h4>{{ emprunt.name}}</h4>
+                    <md-list-item style="background-color: white;" ng-click="goToFriend(emprunt.idFriend)">
+                        <img alt="{{emprunt.name}}" ng-src="{{emprunt.img}}" class="md-avatar" />
+                        <h4>{{emprunt.name}}</h4>
                         <p>, vous lui devez :</p>
-                        <span class="md-secondary md-hue-3"> {{ emprunt.montant}} €</span>
+                        <span class="md-secondary md-hue-3"> {{emprunt.montant}} €</span>
                         <md-divider></md-divider>
                     </md-list-item>
                 </md-list>

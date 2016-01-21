@@ -46,7 +46,7 @@ app.config(['$routeProvider',
                     controller: 'groupController'
                 }).
                 when('/group/:id', {
-                    templateUrl: 'partials/group-activty.html',
+                    templateUrl: 'partials/group-activity.html',
                     controller: ''
                 }).
                 when('/friends', {
