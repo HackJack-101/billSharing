@@ -12,10 +12,17 @@
             <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
             <span style="color: #2980b9; font-size:smaller;">Ajouter une nouvelle transaction</span>
         </md-button>
+        
+        <md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Vous cherchez une transaction ?</label>
+                <input id="search-payment" ng-model="queryPayment"/>
+            </md-input-container>
+        </md-content>
 
         <md-list style="width: 100%;" ng-controller="userController">
             <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;"><span>Janvier 2016</span></md-subheader>
-            <md-list-item  ng-repeat="payment in payments" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
+            <md-list-item  ng-repeat="payment in payments | filter : queryPayment | orderBy : 'description'" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
                 <div class="md-list-item-text" layout="column">
                     <h3>{{ payment.description}}ouais</h3>
                     <h4>{{ payment.updated}}12/09/1992</h4>

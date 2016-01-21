@@ -24,8 +24,8 @@
             <md-list-item ng-repeat="friend in friends" class="md-2-line" style="background-color: white;" ng-click="goToUser({{ami.id}})"> <!-- ng-repeat="ami in ctrl.listeAmis | filter : query | orderBy : prenom" -->
                 <img alt="{{ friend.firstName}} {{ friend.lastName}}" ng-src="{{ ami.img}}" class="md-avatar" />
                 <h4>{{ friend.firstName}} {{ friend.lastName}} {{ friend.email}}</h4>
+                <md-divider></md-divider>
             </md-list-item>
-            <md-divider></md-divider>
         </md-list>
     </div>
 </div>
