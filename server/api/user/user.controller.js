@@ -2,6 +2,7 @@
 
 var User = require('./user.model');
 var Group = require('./../group/group.model');
+var Payment = require('./../payment/payment.model');
 
 exports.get = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
@@ -36,9 +37,20 @@ exports.login = function (req, res) {
     });
 };
 
-exports.getUserGroups = function (req, res) {
+exports.getGroupsByUserId = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
 	Group.find({friends: req.params.id}, function (err, data) {
+		if (err) {
+			res.status(500).send(err);
+		} else {
+			res.send(JSON.stringify(data));
+		}
+	});
+};
+
+exports.getPaymentsByUserId = function (req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	Payment.find({from: req.params.id}, function (err, data) {
 		if (err) {
 			res.status(500).send(err);
 		} else {

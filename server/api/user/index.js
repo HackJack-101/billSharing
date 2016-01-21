@@ -7,7 +7,8 @@ var router = express.Router();
 
 router.get('/', controller.getAll);
 router.get('/:id', controller.get);
-router.get('/:id/groups', controller.getUserGroups);
+router.get('/:id/groups', controller.getGroupsByUserId);
+router.get('/:id/payments', controller.getPaymentsByUserId);
 router.post('/', controller.add);
 router.post('/login', controller.add);
 router.put('/:id', controller.edit);

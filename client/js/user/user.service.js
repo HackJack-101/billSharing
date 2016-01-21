@@ -11,8 +11,11 @@ angular.module('app.service.user', ['app'])
             getAll : function() {
                 return $http.get('/user/');
             },
-            getUserGroups : function(id) {
+            getGroupsByUserId : function(id) {
                 return $http.get('/user/' + id + '/groups');
+            }, 
+            getPaymentsByUserId : function(id) {
+                return $http.get('/user/' + id + '/payments');
             },           
             add : function(user) {
                 return $http.post('/user/', user);
