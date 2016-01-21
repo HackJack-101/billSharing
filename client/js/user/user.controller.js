@@ -4,6 +4,11 @@ angular.module('app.controller.user', ['app'])
 
         .controller('userController', function ($scope, $cookies, $location, User) {
 
+            $scope.user = $cookies.getObject('user');
+            if ($cookies.getObject('user'))
+                $scope.user = $cookies.getObject('user');
+            else
+                $location.path("/login").replace();
             $scope.getAll = function () {
                 User.getAll().success(function (data) {
                     $scope.users = data;

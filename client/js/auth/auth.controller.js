@@ -11,10 +11,15 @@ angular.module('app.controller.auth', ['app'])
                             {
                                 $cookies.remove('user');
                                 $cookies.putObject('user', data);
-                                $location.path("/").replace;
+                                $location.path("/").replace();
                             } else
                             {
                                 $scope.hasError = true;
+                                setTimeout(function () {
+                                    $scope.$apply(function () {
+                                        $scope.hasError = false;
+                                    });
+                                }, 1000);
                             }
                         }).
                         error(function (data) {

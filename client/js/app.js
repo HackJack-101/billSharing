@@ -13,7 +13,7 @@ app.config(['$routeProvider',
         $routeProvider.
                 when('/', {
                     templateUrl: 'partials/home.html',
-                    controller: ''
+                    controller: 'userController'
                 }).
                 when('/login', {
                     templateUrl: 'partials/login.html',
