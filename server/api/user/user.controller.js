@@ -50,6 +50,7 @@ exports.getGroupsByUserId = function (req, res) {
 
 exports.getPaymentsByUserId = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
+	//TODO change find, it's not only "from:"
 	Payment.find({from: req.params.id}, function (err, data) {
 		if (err) {
 			res.status(500).send(err);

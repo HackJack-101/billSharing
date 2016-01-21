@@ -8,6 +8,7 @@ var UserSchema = new mongoose.Schema({
     email: String,
     phone: String,
     password: String,
+    friends: [String],
     updated: {type: Date, default: Date.now}
 });
 
