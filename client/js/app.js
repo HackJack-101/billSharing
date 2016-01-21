@@ -1,6 +1,10 @@
 'use strict';
 
-var app = angular.module('app', ['ngRoute', 'ngMaterial']);
+var app = angular.module('app', ['ngRoute', 'ngMaterial',
+                         'app.controller.user', 'app.service.user',
+                         'app.controller.bill', 'app.service.bill', 
+                         'app.controller.group', 'app.service.group', 
+                         'app.controller.payement', 'app.service.payement']);
 
 app.config(['$routeProvider',
     function ($routeProvider) {
