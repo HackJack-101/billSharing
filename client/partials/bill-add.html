@@ -5,13 +5,14 @@
 
     <form id="addBillForm" name="addGroupForm" ng-submit="submit()">
         <md-input-container class="md-block">
-            <label>Nom de la transaction :</label>
+            <label>Description de la transaction :</label>
             <md-icon class="pen-icon" md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
             <input md-maxlength="250" type="text" name="description" ng-model="addBill.description" ng-required="true">
             <div ng-messages="addBillForm.description.$error">
-                <div ng-message="required">Nom de la transaction manquant</div>
+                <div ng-message="required">Description de la transaction manquante</div>
             </div>
         </md-input-container>
+        
         <md-input-container class="md-block">
             <label>Montant de la transaction :</label>
             <md-icon class="pen-icon" md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
