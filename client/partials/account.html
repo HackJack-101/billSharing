@@ -1,14 +1,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<div>
+<div ng-controller="userController">
     <h1 class="title-form">Informations sur votre compte</h1>
   
-    <form name="accountForm" ng-submit="submit()">
+    <form name="accountForm" ng-submit="submit()" >
 	  <div layout-gt-sm="row">
 	    <md-input-container class="md-block" flex-gt-sm>
 	      <label>Prénom :</label>
 	      <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
-	      <input md-maxlength="250" type="text" name="firstname" ng-disabled="!ctrl.disabledFirstname" ng-model="user.firstname" ng-required="true">
+	      <input md-maxlength="250" type="text" name="firstName" ng-disabled="!ctrl.disabledFirstname" ng-model="user.firstName" ng-required="true">
 	      <div ng-messages="accountForm.firstname.$error">
 	        <div ng-message="required">Prénom manquant.</div>
 	      </div>
@@ -22,7 +22,7 @@
 	    <md-input-container class="md-block" flex-gt-sm>
 	      <label>Nom :</label>
 	      <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
-	      <input md-maxlength="250" type="text" name="lastname" ng-disabled="!ctrl.disabledLastname" ng-model="user.lastname" ng-required="true">
+	      <input md-maxlength="250" type="text" name="lastName" ng-disabled="!ctrl.disabledLastname" ng-model="user.lastName" ng-required="true">
 	      <div ng-messages="accountForm.lastname.$error">
 	        <div ng-message="required">Nom manquant.</div>
 	      </div>
@@ -38,9 +38,9 @@
 		<md-input-container class="md-block" flex-gt-sm>
 		   <label>Adresse mail :</label>
 		   <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
-		   <input md-maxlength="250" type="email" name="mail" ng-disabled="!ctrl.disabledEmail" ng-model="user.mail" ng-required="true">
-		   <div ng-messages="accountForm.mail.$error">
-		     <div ng-message="required">Adresse mail manquante.</div>
+		   <input md-maxlength="250" type="email" name="email" ng-disabled="!ctrl.disabledEmail" ng-model="user.email" ng-required="true">
+		   <div ng-messages="accountForm.email.$error">
+		     <div ng-message="required">Adresse email manquante.</div>
 		   </div>
 		   
 		   <md-button ng-click="ctrl.disabledEmail = true" ng-show="!ctrl.disabledEmail" style="background-color: white; font-size: small;">
@@ -52,7 +52,7 @@
 		 <md-input-container class="md-block" flex-gt-sm>
 		   <label>Numéro de téléphone (facultatif):</label>
 		   <md-icon md-svg-src="img/smartphone.svg" style="color: #2980b9;"></md-icon>
-		   <input md-maxlength="10" type="text" name="number" ng-disabled="!ctrl.disabledNumber" ng-model="user.number" ng-required="false">
+		   <input md-maxlength="10" type="text" name="phone" ng-disabled="!ctrl.disabledNumber" ng-model="user.phone" ng-required="false">
 		   <div ng-messages="accountForm.number.$error">
 		     <div ng-message="md-maxlength">Les 10 chiffres doivent se suivre : XXXXXXXXXX</div>
 		   </div>
