@@ -22,6 +22,15 @@ angular.module('app.controller.user', ['app'])
             });
     }
 
+    $scope.getUserGroups = function(id) {
+        User.getUserGroups(id).success(function(data) {
+                $scope.groups = data;
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
+
     $scope.add = function(user) {
         User.add(user).success(function(data) {
                 $scope.response = data;

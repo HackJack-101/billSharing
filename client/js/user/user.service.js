@@ -10,6 +10,9 @@ angular.module('app.service.user', ['app'])
             },
             getAll : function() {
                 return $http.get('/user/');
+            },
+            getUserGroups : function(id) {
+                return $http.get('/user/' + id + '/groups');
             },           
             add : function(user) {
                 return $http.post('/user/', user);

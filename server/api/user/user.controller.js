@@ -1,6 +1,7 @@
 'use strict';
 
 var User = require('./user.model');
+var Group = require('./../group/group.model');
 
 exports.get = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
@@ -16,6 +17,17 @@ exports.get = function (req, res) {
 exports.getAll = function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
 	User.find(function (err, data) {
+		if (err) {
+			res.status(500).send(err);
+		} else {
+			res.send(JSON.stringify(data));
+		}
+	});
+};
+
+exports.getUserGroups = function (req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	Group.find({friends: req.params.id}, function (err, data) {
 		if (err) {
 			res.status(500).send(err);
 		} else {
