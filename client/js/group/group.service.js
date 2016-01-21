@@ -6,22 +6,22 @@ angular.module('app.service.group', ['app'])
     .factory('Group', function($http) {
         return {
             get : function(id) {
-                return $http.get('/group/' + id);
+                return $http.get('/api/group/' + id);
             },
             getAll : function() {
-                return $http.get('/group/');
+                return $http.get('/api/group/');
             },
             getBills : function(id) {
-                return $http.get('/group/' + id + '/bills');
+                return $http.get('/api/group/' + id + '/bills');
             },           
             add : function(group) {
-                return $http.post('/group/', group);
+                return $http.post('/api/group/', group);
             },
             edit : function(group) {
-                return $http.put('/group/', group);
+                return $http.put('/api/group/', group);
             },
             delete : function(id) {
-                return $http.delete('/group/' + id);
+                return $http.delete('/api/group/' + id);
             }
         }
     });

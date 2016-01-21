@@ -6,29 +6,29 @@ angular.module('app.service.user', ['app'])
         .factory('User', function ($http) {
             return {
                 get: function (id) {
-                    return $http.get('/user/' + id);
+                    return $http.get('/api/user/' + id);
                 },
                 getAll: function () {
-                    return $http.get('/user/');
+                    return $http.get('/api/user/');
                 },
                 getGroupsByUserId: function (id) {
-                    return $http.get('/user/' + id + '/groups');
+                    return $http.get('/api/user/' + id + '/groups');
                 },
                 getPaymentsByUserId: function (id) {
-                    return $http.get('/user/' + id + '/payments');
+                    return $http.get('/api/user/' + id + '/payments');
                 },
                 add: function (user) {
-                    return $http.post('/user/', user);
+                    return $http.post('/api/user/', user);
                 },
                 edit: function (user) {
-                    return $http.put('/user/', user);
+                    return $http.put('/api/user/', user);
                 },
                 delete: function (id) {
-                    return $http.delete('/user/' + id);
+                    return $http.delete('/api/user/' + id);
                 },
                 login: function (data)
                 {
-                    return $http.post('/user/login', {email: data.email, password: data.password});
+                    return $http.post('/api/user/login', {email: data.email, password: data.password});
                 }
             };
         });

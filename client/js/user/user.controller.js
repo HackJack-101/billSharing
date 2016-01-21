@@ -4,11 +4,13 @@ angular.module('app.controller.user', ['app'])
 
         .controller('userController', function ($scope, $cookies, $location, User) {
 
+// Get logged user
             $scope.user = $cookies.getObject('user');
             if ($cookies.getObject('user'))
                 $scope.user = $cookies.getObject('user');
             else
                 $location.path("/login").replace();
+            
             $scope.getAll = function () {
                 User.getAll().success(function (data) {
                     $scope.users = data;
@@ -24,15 +26,6 @@ angular.module('app.controller.user', ['app'])
                 })
                         .error(function (data) {
                             console.log('Error: ' + JSON.stringify(data));
-                        });
-            };
-
-            $scope.getGroupsByUserId = function (id) {
-                User.getGroupsByUserId(id).success(function (data) {
-                    $scope.groups = data;
-                })
-                        .error(function (data) {
-                            console.log('Error: ' + data);
                         });
             };
 

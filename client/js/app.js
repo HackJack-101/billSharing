@@ -23,23 +23,23 @@ app.config(['$routeProvider',
                     templateUrl: 'partials/register.html',
                     controller: ''
                 }).
-                when('/recentactivity', {
+                when('/activity', {
                     templateUrl: 'partials/recentactivity.html',
                     controller: ''
                 }).
-                when('/allbills', {
+                when('/bills', {
                     templateUrl: 'partials/userbills.html',
                     controller: ''
                 }).
-                when('/allgroups', {
+                when('/groups', {
                     templateUrl: 'partials/usergroups.html',
-                    controller: ''
+                    controller: 'groupController'
                 }).
-                when('/activitygrp', {
+                when('/group/:id', {
                     templateUrl: 'partials/activitygroup.html',
                     controller: ''
                 }).
-                when('/allfriends', {
+                when('/friends', {
                     templateUrl: 'partials/userfriends.html',
                     controller: ''
                 }).
