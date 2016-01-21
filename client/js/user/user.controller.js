@@ -100,27 +100,40 @@ userController.controller('userController', function ($scope, $cookies, $locatio
                 });
     };
 
-    $scope.getFriendsByUserId = function (id) {
+    $scope.getFriends = function () {
 
-        User.get(id).success(function (data) {
             $scope.friends = [];
-
             // for each id in friends, it will get more information than only "id"
-            for (var i = 0; i < data.friends.length; i++) {
-                User.get(data._id).success(function (data2) {
-                    $scope.friends.push(data2);
-                });
-            }
-        })
-                .error(function (data) {
+            for (var i = 0; i < $scope.user.friends.length; i++) {
+                User.get($scope.user.friends[i]).success(function (data) {
+                    $scope.friends.push(data);
+
+                }).error(function (data) {
                     console.log('Error: ' + data);
                 });
+            }
     };
 
     $scope.addFriend = function () {
 
-                alert("id : "+$scope.user._id +" friend : "+$scope.friend);
-                // $scope.friend = 
+            alert("id : "+$scope.user._id +" friend : "+$scope.friend);
+                
+            User.getByEmail($scope.friend).success(function (data) {
+
+                $scope.user.friends.push(data);
+
+                User.edit(user).success(function (data) {
+                    $scope.response = data;
+                })
+                        .error(function (data) {
+                            console.log('Error: ' + data);
+                        });
+
+                })
+                    .error(function (data) {
+                        console.log('Fail to add friend. Error : ' + data);
+                    });
+
 
     };
 
