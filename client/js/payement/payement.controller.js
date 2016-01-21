@@ -2,7 +2,7 @@
 
 angular.module('app.controller.payement', ['app'])
 
-.controller('payementController', function($scope, $http, Payement) {
+.controller('payementController', function($scope, Payement) {
 
     $scope.getAll = function() {
         Payement.getAll().success(function(data) {

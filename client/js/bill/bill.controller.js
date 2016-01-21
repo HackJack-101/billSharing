@@ -2,7 +2,7 @@
 
 angular.module('app.controller.bill', ['app'])
 
-.controller('billController', function($scope, $http, Bill) {
+.controller('billController', function($scope, Bill) {
 
     $scope.getAll = function() {
         Bill.getAll().success(function(data) {
