@@ -1,10 +1,11 @@
 'use strict';
 
-var app = angular.module('app', ['ngRoute', 'ngMaterial',
+var app = angular.module('app', ['ngRoute', 'ngMaterial', 'ngCookies',
     'app.controller.user', 'app.service.user',
     'app.controller.bill', 'app.service.bill',
     'app.controller.group', 'app.service.group',
-    'app.controller.payement', 'app.service.payement']);
+    'app.controller.payement', 'app.service.payement'
+]);
 
 app.config(['$routeProvider',
     function ($routeProvider) {
@@ -15,7 +16,7 @@ app.config(['$routeProvider',
                 }).
                 when('/login', {
                     templateUrl: 'partials/login.html',
-                    controller: ''
+                    controller: 'userController'
                 }).
                 when('/register', {
                     templateUrl: 'partials/register.html',
