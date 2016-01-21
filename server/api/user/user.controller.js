@@ -26,7 +26,7 @@ exports.getAll = function (req, res) {
 
 exports.login = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    User.find({email: req.body.email, password: req.body.password}, function (err, data) {
+    User.findOne({email: req.body.email, password: req.body.password}, function (err, data) {
         if (err) {
             res.status(500).send(err);
         } else {
