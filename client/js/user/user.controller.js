@@ -33,7 +33,7 @@ angular.module('app.controller.user', ['app'])
 
     $scope.getPaymentsByUserId = function(id) {
         User.getPaymentsByUserId(id).success(function(data) {
-                $scope.groups = data;
+                $scope.payments = data;
             })
             .error(function(data) {
                 console.log('Error: ' + data);
