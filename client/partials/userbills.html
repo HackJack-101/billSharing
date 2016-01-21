@@ -1,82 +1,74 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <div id="main-panel">
-  <div id="shortcuts-panel">
-	<md-list style="">
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/">
-	      <md-icon md-svg-src="img/dashboard.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Dashboard</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/recentactivity">
-	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Activités récentes</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
-	      <md-icon md-svg-src="img/money.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Vos transactions</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/allgroups">
-	      <md-icon md-svg-src="img/network.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Vos groupes</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-list-item class="md-1-line">
-	    <md-list style="width: 100%;">
-          <md-list-item style="width: 100%;" href="/#/activitygrp/{{groupe.id}}">
-            <md-icon md-svg-src="img/arrow.svg" style="color: #2980b9;"></md-icon>
-		    <span style="width: 100%; color: #2e8ece;"> {{ groupe.texte }}test dze dze edzez fzf ze r </span>
-	      </md-list-item>
+    <div id="shortcuts-panel">
+        <md-list style="">
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/">
+                    <md-icon md-svg-src="img/dashboard.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Dashboard</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/recentactivity">
+                    <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Activités récentes</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
+                    <md-icon md-svg-src="img/money.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Vos transactions</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/allgroups">
+                    <md-icon md-svg-src="img/network.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Vos groupes</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/allfriends">
+                    <md-icon md-svg-src="img/friends.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Vos amis</span>
+                </md-button>
+            </md-list-item>
         </md-list>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/allfriends">
-	      <md-icon md-svg-src="img/friends.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Vos amis</span>
-	    </md-button>
-	  </md-list-item>
-    </md-list>
-  </div>
- 
-  <div id="contents-panel">
-    <div layout="row" layout-align="center center" style="text-align: center;">
-	    <h2 style="color: #2980b9;">Vos transactions</h2>
     </div>
-    
-    <md-button class="md-primary" style="color: #2980b9;" href="/#/addbill">
-      <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
-      <span style="color: #2980b9; font-size:smaller;">Ajouter une nouvelle transaction</span>
-    </md-button>
-    
-    <md-list style="width: 100%;">
-      <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;"><span>Janvier 2016</span></md-subheader>
-      <md-list-item class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
-		<div class="md-list-item-text" layout="column">
-          <h3>{{ transaction.texte }}ouaisnnfdgjlkfjglk dkljgkfjljjdjgrfg r rt rt g te ekldgj flkjf glkjdg lkdf gjlkj g</h3>
-          <h4>{{ transaction.date }}12/09/1992</h4>
-          <p>{{ transaction.groupe }}theFamous</p>
+
+    <div id="contents-panel">
+        <div layout="row" layout-align="center center" style="text-align: center;">
+            <h2 style="color: #2980b9;">Vos transactions</h2>
         </div>
-        <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
-          <p style="color: #409ad5;">montant</p>
-          <h4>{{ transaction.montant }}€</h4>
-        </div>
-        <div class="md-2-line md-list-item-text" layout="column">
-          <p style="color: #409ad5;">on vous doit</p>
-          <h4 style="color: 2bbe69;">{{ transaction.montantDu }}€</h4>
-        </div>
-	  </md-list-item>
-      <md-divider></md-divider>
-    </md-list>
-  </div>
-  
+
+        <md-button class="md-primary" style="color: #2980b9;" href="/#/addbill">
+            <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
+            <span style="color: #2980b9; font-size:smaller;">Ajouter une nouvelle transaction</span>
+        </md-button>
+
+        <md-list style="width: 100%;">
+            <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;"><span>Janvier 2016</span></md-subheader>
+            <md-list-item class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{ transaction.texte}}ouaisnnfdgjlkfjglk dkljgkfjljjdjgrfg r rt rt g te ekldgj flkjf glkjdg lkdf gjlkj g</h3>
+                    <h4>{{ transaction.date}}12/09/1992</h4>
+                    <p>{{ transaction.groupe}}theFamous</p>
+                </div>
+                <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
+                    <p style="color: #409ad5;">montant</p>
+                    <h4>{{ transaction.montant}}€</h4>
+                </div>
+                <div class="md-2-line md-list-item-text" layout="column">
+                    <p style="color: #409ad5;">on vous doit</p>
+                    <h4 style="color: 2bbe69;">{{ transaction.montantDu}}€</h4>
+                </div>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </div>
+
 </div>

@@ -23,7 +23,7 @@
                                 <md-icon md-svg-src="img/profile.svg" style="color: white;"></md-icon>
                                 Utilisateur
                             </md-button>
-                            <md-menu-content>
+                            <md-menu-content width="4">
                                 <md-menu-item>
                                     <md-button href="/#/addbill">
                                         <md-icon md-svg-src="img/plus.svg" style="color: #2980b9;"></md-icon>
@@ -43,7 +43,7 @@
                                     </md-button>
                                 </md-menu-item> 
                                 <md-menu-item>
-                                    <md-button>
+                                    <md-button ng-click="ctrl.logoff()">
                                         <md-icon md-svg-src="img/power.svg" style="color: #2980b9;"></md-icon>
                                         Se déconnecter
                                     </md-button>

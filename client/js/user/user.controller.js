@@ -22,6 +22,24 @@ angular.module('app.controller.user', ['app'])
                         });
             };
 
+            $scope.getGroupsByUserId = function (id) {
+                User.getGroupsByUserId(id).success(function (data) {
+                    $scope.groups = data;
+                })
+                        .error(function (data) {
+                            console.log('Error: ' + data);
+                        });
+            };
+
+            $scope.getPaymentsByUserId = function (id) {
+                User.getPaymentsByUserId(id).success(function (data) {
+                    $scope.groups = data;
+                })
+                        .error(function (data) {
+                            console.log('Error: ' + data);
+                        });
+            };
+
             $scope.add = function (user) {
                 User.add(user).success(function (data) {
                     $scope.response = data;
@@ -55,10 +73,10 @@ angular.module('app.controller.user', ['app'])
                 User.login($scope.login).
                         success(function (data) {
                             console.log(data);
-                            if(data != null)
+                            if (data != null)
                             {
                                 $cookies.remove('user');
-                                $cookies.putObject('user',data);
+                                $cookies.putObject('user', data);
                                 $location.path("/").replace;
                             }
                         }).
