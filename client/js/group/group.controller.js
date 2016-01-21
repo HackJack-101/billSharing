@@ -29,15 +29,12 @@ groupControllers.controller('groupController', function ($scope, $routeParams, G
         console.log('Error: ' + JSON.stringify(data));
     });
 
+    Group.getBills(id).success(function (data) {
+        $scope.bills = data;
+    }).error(function (data) {
+        console.log('Error: ' + JSON.stringify(data));
+    });
 
-    $scope.getBills = function (id) {
-        Group.getBills(id).success(function (data) {
-            $scope.groupBills = data;
-        })
-                .error(function (data) {
-                    console.log('Error: ' + JSON.stringify(data));
-                });
-    }
 
     $scope.add = function (group) {
         Group.add(group).success(function (data) {
