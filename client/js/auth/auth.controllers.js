@@ -1,7 +1,7 @@
 'use strict';
-var authController = angular.module('app.controller.auth', ['app']);
+var authControllers = angular.module('app.controller.auth', ['app']);
 
-authController.controller('loginController', function ($scope, $cookies, $location, User) {
+authControllers.controller('loginController', function ($scope, $cookies, $location, User) {
     $scope.hasError = false;
     $scope.login = function () {
         User.login($scope.login).
@@ -29,7 +29,7 @@ authController.controller('loginController', function ($scope, $cookies, $locati
 
 });
 
-authController.controller('logoutController', function ($cookies, $location) {
+authControllers.controller('logoutController', function ($cookies, $location) {
     $cookies.remove('user');
     $location.path("/").replace();
 });
