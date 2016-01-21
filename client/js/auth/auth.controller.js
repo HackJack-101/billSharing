@@ -3,17 +3,18 @@
 angular.module('app.controller.auth', ['app'])
 
         .controller('authController', function ($scope, $cookies, $location, User) {
-
+            $scope.hasError = false;
             $scope.login = function () {
-                console.log('submit');
                 User.login($scope.login).
                         success(function (data) {
-                            console.log(data);
                             if (data != null)
                             {
                                 $cookies.remove('user');
                                 $cookies.putObject('user', data);
                                 $location.path("/").replace;
+                            } else
+                            {
+                                $scope.hasError = true;
                             }
                         }).
                         error(function (data) {

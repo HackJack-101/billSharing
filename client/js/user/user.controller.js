@@ -30,7 +30,7 @@ angular.module('app.controller.user', ['app'])
                             console.log('Error: ' + data);
                         });
             };
-            
+
             $scope.getPaymentsByUserId = function (id) {
                 User.getPaymentsByUserId(id).success(function (data) {
                     $scope.groups = data;
@@ -68,22 +68,8 @@ angular.module('app.controller.user', ['app'])
                         });
             };
 
-            $scope.login = function () {
-                console.log('submit');
-                User.login($scope.login).
-                        success(function (data) {
-                            console.log(data);
-                            if (data != null)
-                            {
-                                $cookies.remove('user');
-                                $cookies.putObject('user', data);
-                                $location.path("/").replace;
-                            }
-                        }).
-                        error(function (data) {
-                            console.log('Error:');
-                            console.log(data);
-                        });
+            $scope.addFriend = function ()
+            {
             };
 
         });

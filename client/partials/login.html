@@ -2,6 +2,9 @@
 
 <h1 class="title-form">Connexion</h1>
 <form name="loginForm" ng-submit="login()">
+    <div layout="row" layout-align="center center" ng-show="hasError">
+        <h3 style="color: rgb(221,44,0);">Combinaison email/mot de passe erronée.</h3>
+    </div>
     <md-input-container class="md-block">
         <label>Adresse mail :</label>
         <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
