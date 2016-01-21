@@ -25,7 +25,7 @@
                             </md-button>
                             <md-menu-content width="4">
                                 <md-menu-item>
-                                    <md-button href="/#/addbill">
+                                    <md-button href="/#/bill">
                                         <md-icon md-svg-src="img/plus.svg" style="color: #2980b9;"></md-icon>
                                         Nouvelle transaction
                                     </md-button>
@@ -37,13 +37,13 @@
                                     </md-button>
                                 </md-menu-item>
                                 <md-menu-item>
-                                    <md-button href="/#/addgroup">
+                                    <md-button href="/#/group">
                                         <md-icon md-svg-src="img/group.svg" style="color: #2980b9;"></md-icon>
                                         Créer un groupe
                                     </md-button>
                                 </md-menu-item> 
                                 <md-menu-item>
-                                    <md-button ng-click="ctrl.logoff()">
+                                    <md-button href="/#/logout">
                                         <md-icon md-svg-src="img/power.svg" style="color: #2980b9;"></md-icon>
                                         Se déconnecter
                                     </md-button>
@@ -75,6 +75,6 @@
         <script src="./js/bill/bill.service.js"></script>
         <script src="./js/payment/payment.controller.js"></script>
         <script src="./js/payment/payment.service.js"></script>
-        <script src="./js/auth/auth.controller.js"></script>
+        <script src="./js/auth/auth.controllers.js"></script>
     </body>
 </html>

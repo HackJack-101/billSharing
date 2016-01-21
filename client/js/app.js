@@ -23,7 +23,11 @@ app.config(['$routeProvider',
                 }).
                 when('/login', {
                     templateUrl: 'partials/user-login.html',
-                    controller: 'authController'
+                    controller: 'loginController'
+                }).
+                when('/logout', {
+                    templateUrl: 'partials/user-login.html',
+                    controller: 'logoutController'
                 }).
                 when('/register', {
                     templateUrl: 'partials/user-register.html',
