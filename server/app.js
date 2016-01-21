@@ -25,12 +25,6 @@ app.use(function (req, res, next) {
 require('./routes')(app);
 
 app.use(express.static(__dirname + "/../client"));
-//app.use("/bower_components", express.static(__dirname + "/../client/bower_components"));
-//app.use("/js", express.static(__dirname + "/../client/js"));
-//app.use("/design", express.static(__dirname + "/../client/design"));
-//app.use("/assets", express.static(__dirname + "/../client/assets"));
-//app.use("/partials", express.static(__dirname + "/../client/partials"));
-
 
 // Start server
 var server = app.listen(3000, function () {
