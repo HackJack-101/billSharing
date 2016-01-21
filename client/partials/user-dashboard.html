@@ -33,7 +33,7 @@
             md-row-height-gt-md="1:1" md-row-height="2:2"
             md-gutter="12px" md-gutter-gt-sm="8px">
             <md-grid-tile md-colspan="3" md-colspan-sm="3">
-                <md-list style="width: 100%;">
+                <md-list style="width: 100%; top: 0; left: 0; position: inherit;">
                     <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;">Liste des remboursements :</md-subheader>
                     <md-list-item style="background-color: white;" ng-click="goToFriend(remboursement.idFriend)">
                         <img alt="{{ remboursement.name}}" ng-src="{{ remboursement.img}}" class="md-avatar" />
@@ -46,7 +46,7 @@
             </md-grid-tile>
 
             <md-grid-tile md-colspan="3" md-colspan-sm="3">
-                <md-list style="width: 100%;">
+                <md-list style="width: 100%; top: 0; right: 0; position: inherit;">
                     <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;">Liste des emprunts :</md-subheader>
                     <md-list-item style="background-color: white;" ng-click="goToFriend(emprunt.idFriend)">
                         <img alt="{{emprunt.name}}" ng-src="{{emprunt.img}}" class="md-avatar" />
