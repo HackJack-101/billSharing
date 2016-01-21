@@ -17,6 +17,8 @@ app.config(['$routeProvider',
         $routeProvider.when('/activitygrp', {templateUrl: 'partials/activitygroup.html'});
         $routeProvider.when('/allfriends', {templateUrl: 'partials/userfriends.html'});
         $routeProvider.when('/addgroup', {templateUrl: 'partials/addgroup.html'});
+        $routeProvider.when('/addbill', {templateUrl: 'partials/addbill.html'});
+        $routeProvider.when('/addfriend', {templateUrl: 'partials/addfriend.html'});
         $routeProvider.when('/account', {templateUrl: 'partials/account.html'});
         $routeProvider.otherwise({
             redirectTo: "/"
