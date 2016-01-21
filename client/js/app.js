@@ -45,6 +45,14 @@ app.config(['$routeProvider',
                     templateUrl: 'partials/addgroup.html',
                     controller: ''
                 }).
+                when('/addbill', {
+                    templateUrl: 'partials/addbill.html',
+                    controller: ''
+                }).
+                when('/addfriend', {
+                    templateUrl: 'partials/addfriend.html',
+                    controller: ''
+                }).
                 when('/account', {
                     templateUrl: 'partials/account.html',
                     controller: ''
