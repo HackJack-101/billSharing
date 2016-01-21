@@ -85,6 +85,10 @@ angular.module('app.controller.user', ['app'])
 
             $scope.addFriend = function ()
             {
+
+                alert("id : "+$scope.user._id +" friend : "+$scope.friend);
+                // $scope.friend = 
+
             };
 
         });

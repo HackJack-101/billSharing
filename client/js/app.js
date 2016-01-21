@@ -63,7 +63,7 @@ app.config(['$routeProvider',
                 }).
                 when('/friend/', {
                     templateUrl: 'partials/friend-add.html',
-                    controller: ''
+                    controller: 'userController'
                 }).
                 when('/account', {
                     templateUrl: 'partials/user-account.html',
