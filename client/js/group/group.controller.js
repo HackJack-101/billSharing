@@ -2,7 +2,7 @@
 
 angular.module('app.controller.group', ['app'])
 
-.controller('groupController', function($scope, $http, Group) {
+.controller('groupController', function($scope, Group) {
 
     $scope.getAll = function() {
         Group.getAll().success(function(data) {

@@ -1,39 +1,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <h1 class="title-form">Connexion</h1>
-<form name="loginForm" ng-submit="submit()">
-  <md-input-container class="md-block">
-     <label>Adresse mail :</label>
-     <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
-     <input md-maxlength="250" type="email" name="mail" ng-model="login.mail" ng-required="true">
-     <div ng-messages="loginForm.mail.$error">
-       <div ng-message="required">Adresse mail manquante.</div>
-     </div>
-   </md-input-container>
-   <md-input-container class="md-block">
-     <label>Mot de passe :</label>
-     <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
-     <input md-maxlength="250" type="password" name="password" ng-model="login.password" ng-required="true">
-     <div ng-messages="loginForm.password.$error">
-       <div ng-message="required">Mot de passe manquant.</div>
-     </div>
-   </md-input-container>
-   <div layout="row" layout-align="center center">
-	 <md-button class="md-primary login-form-button" ng-disabled="loginForm.$invalid" style="background-color: #2bbe69;">
-	   <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
-	   <span style="color: white; font-size:large;">Valider</span>
-	 </md-button>
-   </div>
+<form name="loginForm" ng-submit="login()">
+    <md-input-container class="md-block">
+        <label>Adresse mail :</label>
+        <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
+        <input md-maxlength="250" type="email" name="mail" ng-model="login.email" ng-required="true">
+        <div ng-messages="loginForm.mail.$error">
+            <div ng-message="required">Adresse mail manquante.</div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label>Mot de passe :</label>
+        <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
+        <input md-maxlength="250" type="password" name="password" ng-model="login.password" ng-required="true">
+        <div ng-messages="loginForm.password.$error">
+            <div ng-message="required">Mot de passe manquant.</div>
+        </div>
+    </md-input-container>
+    <div layout="row" layout-align="center center">
+        <md-button class="md-primary login-form-button" ng-disabled="loginForm.$invalid" type="submit" style="background-color: #2bbe69;">
+            <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
+            <span style="color: white; font-size:large;">Valider</span>
+        </md-button>
+    </div>
 </form>
 
 <br />
 
 <h2 class="title-form">Pas encore de compte ?</h2>
 <div layout="row" layout-align="center center">
-  <md-button class="md-primary register-button" style="background-color: #2980b9; margin-top: -5px;" href="/#/register">
-	<md-icon md-svg-src="img/familiar.svg" style="color: white;"></md-icon>
-	<span style="color: white;">S'enregistrer</span>
-  </md-button>
+    <md-button class="md-primary register-button" style="background-color: #2980b9; margin-top: -5px;" href="/#/register">
+        <md-icon md-svg-src="img/familiar.svg" style="color: white;"></md-icon>
+        <span style="color: white;">S'enregistrer</span>
+    </md-button>
 </div>
 
 <br />

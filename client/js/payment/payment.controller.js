@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('app.controller.payement', ['app'])
+angular.module('app.controller.payment', ['app'])
 
-.controller('payementController', function($scope, $http, Payement) {
+.controller('paymentController', function($scope, Payment) {
 
     $scope.getAll = function() {
-        Payement.getAll().success(function(data) {
-                $scope.payements = data;
+        Payment.getAll().success(function(data) {
+                $scope.payments = data;
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -14,16 +14,16 @@ angular.module('app.controller.payement', ['app'])
     }
 
     $scope.get = function(id) {
-        Payement.get(id).success(function(data) {
-                $scope.payement = data;
+        Payment.get(id).success(function(data) {
+                $scope.payment = data;
             })
             .error(function(data) {
                 console.log('Error: ' + JSON.stringify(data));
             });
     }
 
-    $scope.add = function(payement) {
-        Payement.add(payement).success(function(data) {
+    $scope.add = function(payment) {
+        Payment.add(payment).success(function(data) {
                 $scope.response = data;
             })
             .error(function(data) {
@@ -31,8 +31,8 @@ angular.module('app.controller.payement', ['app'])
             });
     };
 
-    $scope.edit = function(payement) {
-        Payement.edit(payement).success(function(data) {
+    $scope.edit = function(payment) {
+        Payment.edit(payment).success(function(data) {
                 $scope.response = data;
             })
             .error(function(data) {
@@ -40,12 +40,12 @@ angular.module('app.controller.payement', ['app'])
             });
     };
     $scope.delete = function(id) {
-        Payement.delete(id).success(function(data) {
+        Payment.delete(id).success(function(data) {
                 $scope.response = data;
-                console.log("Deleted payement with id : " + id);
+                console.log("Deleted payment with id : " + id);
             })
             .error(function(data) {
-                console.log('Fail to delete payement with id : ' + id + '. Error : ' + data);
+                console.log('Fail to delete payment with id : ' + id + '. Error : ' + data);
             });
     };
 

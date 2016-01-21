@@ -7,11 +7,10 @@ var router = express.Router();
 
 router.get('/', controller.getAll);
 router.get('/:id', controller.get);
-router.get('/:id/groups', controller.getGroupsByUserId);
 router.get('/:id/payments', controller.getPaymentsByUserId);
+router.post('/login', controller.login);
 router.post('/', controller.add);
-router.post('/login', controller.add);
 router.put('/:id', controller.edit);
 router.delete('/:id', controller.delete);
-		
+
 module.exports = router;

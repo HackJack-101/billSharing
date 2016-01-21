@@ -1,24 +1,24 @@
 'use strict';
 
-angular.module('app.service.payement', ['app'])
+angular.module('app.service.payment', ['app'])
 
 
-    .factory('Payement', function($http) {
+    .factory('Payment', function($http) {
         return {
             get : function(id) {
-                return $http.get('/payement/' + id);
+                return $http.get('/payment/' + id);
             },
             getAll : function() {
-                return $http.get('/payement/');
+                return $http.get('/payment/');
             },           
-            add : function(payement) {
-                return $http.post('/payement/', payement);
+            add : function(payment) {
+                return $http.post('/payment/', payment);
             },
-            edit : function(payement) {
-                return $http.put('/payement/', payement);
+            edit : function(payment) {
+                return $http.put('/payment/', payment);
             },
             delete : function(id) {
-                return $http.delete('/payement/' + id);
+                return $http.delete('/payment/' + id);
             }
         }
     });

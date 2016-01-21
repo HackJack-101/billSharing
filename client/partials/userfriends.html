@@ -1,67 +1,67 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <div id="main-panel">
-  <div id="shortcuts-panel">
-	<md-list style="">
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/">
-	      <md-icon md-svg-src="img/dashboard.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Dashboard</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/recentactivity">
-	      <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Activités récentes</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/allbills">
-	      <md-icon md-svg-src="img/money.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Vos transactions</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" href="/#/allgroups">
-	      <md-icon md-svg-src="img/network.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Vos groupes</span>
-	    </md-button>
-	  </md-list-item>
-	  <md-divider></md-divider>
-	  <md-list-item class="md-1-line">
-	    <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
-	      <md-icon md-svg-src="img/friends.svg" style="color: #2980b9;"></md-icon>
-	      <span style="color: #2980b9;">Vos amis</span>
-	    </md-button>
-	  </md-list-item>
-    </md-list>
-  </div>
-  <div id="contents-panel">
-    <div layout="row" layout-align="center center">
-	    <h2 style="color: #2980b9;">Votre liste d'amis</h2>
+    <div id="shortcuts-panel">
+        <md-list style="">
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/">
+                    <md-icon md-svg-src="img/dashboard.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Dashboard</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/recentactivity">
+                    <md-icon md-svg-src="img/recentactivity.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Activités récentes</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/allbills">
+                    <md-icon md-svg-src="img/money.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Vos transactions</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" href="/#/allgroups">
+                    <md-icon md-svg-src="img/network.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Vos groupes</span>
+                </md-button>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item class="md-1-line">
+                <md-button class="shortcut-button" ng-disabled="true" style="background-color: #ecf0f1;">
+                    <md-icon md-svg-src="img/friends.svg" style="color: #2980b9;"></md-icon>
+                    <span style="color: #2980b9;">Vos amis</span>
+                </md-button>
+            </md-list-item>
+        </md-list>
     </div>
-    
-    <md-button class="md-primary" style="color: #2980b9;" href="/#/addfriend">
-      <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
-      <span style="color: #2980b9; font-size:smaller;">Ajouter un ami</span>
-    </md-button>
-    
-    <md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Vous cherchez quelqu'un ?</label>
-        <input id="search-friend" ng-model="query"/>
-      </md-input-container>
-    </md-content>
-    
-    <md-list style="width: 100%;" ng-controller="userController" ng-init="get('POUR_TESTER_METTRE_ID_EN_DUR')">
-	  <md-list-item ng-repeat="user.friend in user.friends"class="md-2-line" style="background-color: white;" ng-click="goToUser({{ami.id}})"> <!-- ng-repeat="ami in ctrl.listeAmis | filter : query | orderBy : prenom" -->
-		<img alt="{{ user.friend.firstName }} {{ user.friend.lastName }}" ng-src="{{ ami.img }}" class="md-avatar" />
-		<h4>{{ user.friend.firstName }}Test {{ user.friend.lastName }} {{ ami.type }} : {{ ami.montant }}€</h4>
-	  </md-list-item>
-      <md-divider></md-divider>
-    </md-list>
-  </div>
+    <div id="contents-panel">
+        <div layout="row" layout-align="center center">
+            <h2 style="color: #2980b9;">Votre liste d'amis</h2>
+        </div>
+
+        <md-button class="md-primary" style="color: #2980b9;" href="/#/addfriend">
+            <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
+            <span style="color: #2980b9; font-size:smaller;">Ajouter un ami</span>
+        </md-button>
+
+        <md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Vous cherchez quelqu'un ?</label>
+                <input id="search-friend" ng-model="query"/>
+            </md-input-container>
+        </md-content>
+
+        <md-list style="width: 100%;" ng-controller="userController" ng-init="get('POUR_TESTER_METTRE_ID_EN_DUR')">
+            <md-list-item class="md-2-line" style="background-color: white;" ng-click="goToUser({{ami.id}})"> <!-- ng-repeat="ami in ctrl.listeAmis | filter : query | orderBy : prenom" -->
+                <img alt="{{ user.friend.firstName }} {{ user.friend.lastName }}" ng-src="{{ ami.img}}" class="md-avatar" />
+                    <h4>{{ user.friend.firstName }}Test {{ user.friend.lastName }} {{ ami.type }} : {{ ami.montant }}€</h4>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </div>
 </div>
