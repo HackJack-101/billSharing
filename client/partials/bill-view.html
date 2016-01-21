@@ -19,11 +19,11 @@
                 <h4>Mis à jour le {{ bill.updated}} </h4>
 
                 <md-input-container class="md-block">
-                    <label>Nom de la transaction :</label>
+                    <label>Description de la transaction :</label>
                     <md-icon md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
                     <input md-maxlength="250" type="text" name="name" ng-disabled="!ctrl.disabledDescription" ng-model="bill.description" ng-required="true">
                     <div ng-messages="detailsBillForm.description.$error">
-                        <div ng-message="required">Nom de la transaction manquant</div>
+                        <div ng-message="required">Description de la transaction manquant</div>
                     </div>
 
                     <md-button ng-click="ctrl.disabledDescription = true" ng-show="!ctrl.disabledDescription" style="background-color: white; font-size: small;">

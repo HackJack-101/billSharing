@@ -15,7 +15,7 @@
         
         <md-input-container class="md-block">
             <label>Montant de la transaction :</label>
-            <md-icon class="pen-icon" md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
+            <md-icon md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
             <input md-maxlength="250" type="text" name="value" ng-model="addBill.value" ng-required="true">
             <div ng-messages="addBillForm.value.$error">
                 <div ng-message="required">Montant de la transaction manquant</div>
