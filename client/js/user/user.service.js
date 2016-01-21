@@ -14,8 +14,14 @@ angular.module('app.service.user', ['app'])
                 getGroupsByUserId: function (id) {
                     return $http.get('/api/user/' + id + '/groups');
                 },
-                getPaymentsByUserId: function (id) {
+                getPayments: function (id) {
                     return $http.get('/api/user/' + id + '/payments');
+                },
+                getPaymentsReceived: function (id) {
+                    return $http.get('/api/user/' + id + '/paymentsReceived');
+                },
+                getBillsPaid: function (id) {
+                    return $http.get('/api/user/' + id + '/billsPaid');
                 },
                 add: function (user) {
                     return $http.post('/api/user/', user);

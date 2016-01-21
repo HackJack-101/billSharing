@@ -9,8 +9,18 @@
         </div>
 
         <md-list style="width: 100%;">
-            <md-list-item style="background-color: white;">
-                <h4> {{ activity.text }} </h4>
+            <md-list-item class="md-3-line"  ng-repeat="activity in activities| orderBy: 'updated'" style="background-color: white;">
+                <div class="md-list-item-text" layout="column">
+                    <h3 style="font-weight: bold">{{activity.name}}</h3>
+                    <i>Le {{activity.updated| date:'dd-MM-yyyy à HH:mm:ss'}}</i>
+                    <p>{{activity.type}}</p>
+                </div>
+                <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
+                    <p style="color: #409ad5;">Montant :</p>
+                    <h4>{{activity.value}} {{activity.currency}}</h4>
+                </div>
+
+
             </md-list-item>
             <md-divider></md-divider>
         </md-list>
