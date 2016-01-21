@@ -50,25 +50,24 @@
             <span style="color: #2980b9; font-size:smaller;">Ajouter une nouvelle transaction</span>
         </md-button>
 
-    <md-list style="width: 100%;" ng-controller="userController">
-            <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;"><span>Janvier 2016</span></md-subheader>
-      <md-list-item  ng-repeat="payment in payments" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
-                <div class="md-list-item-text" layout="column">
-          <h3>{{ payment.description }}ouais</h3>
-          <h4>{{ payment.updated }}12/09/1992</h4>
-          <p>{{ payment.group }}theFamous</p>
-                </div>
-                <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
-                    <p style="color: #409ad5;">montant</p>
-          <h4>{{ payment.value }} {{payment.currency}}</h4>
-                </div>
-                <div class="md-2-line md-list-item-text" layout="column">
-                    <p style="color: #409ad5;">on vous doit</p>
-                    <h4 style="color: 2bbe69;">{{ transaction.montantDu}}€</h4>
-                </div>
-            </md-list-item>
-            <md-divider></md-divider>
-        </md-list>
-    </div>
-
+	    <md-list style="width: 100%;" ng-controller="userController">
+	        <md-subheader class="md-no-sticky" style="background-color: #d3d3d3;"><span>Janvier 2016</span></md-subheader>
+	        <md-list-item  ng-repeat="payment in payments" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
+	            <div class="md-list-item-text" layout="column">
+	            	<h3>{{ payment.description }}ouais</h3>
+	            	<h4>{{ payment.updated }}12/09/1992</h4>
+	          		<p>{{ payment.group }}theFamous</p>
+	            </div>
+	            <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
+	                <p style="color: #409ad5;">montant</p>
+	          		<h4>{{ payment.value }} {{payment.currency}}</h4>
+	            </div>
+	            <div class="md-2-line md-list-item-text" layout="column">
+	                <p style="color: #409ad5;">on vous doit</p>
+	                <h4 style="color: 2bbe69;">{{ transaction.montantDu}}€</h4>
+	            </div>
+	            <md-divider></md-divider>
+	        </md-list-item>
+	    </md-list>
+	</div>
 </div>

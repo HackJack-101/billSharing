@@ -34,7 +34,7 @@
 	    </md-item-template>
 	    <md-not-found>
 	      Aucun ami "{{ctrl.searchText}}" a été trouvé.
-	      <a ng-click="ctrl.addFriend(ctrl.searchText)">Ajouter cette personne ?</a>
+	      <a href="/#/addfriend">Inviter cette personne ?</a>
 	    </md-not-found>
 	  </md-autocomplete>
 	  
@@ -46,11 +46,12 @@
 	  
 	  <br />
 	  
-	  <md-switch ng-model="ctrl.dettes" aria-label="Dettes rapides" ng-true-value="'Activé'" ng-false-value="'Désactivé'">
+	  <md-switch ng-model="addGroup.debts" aria-label="Dettes rapides" ng-true-value="'Activé'" ng-false-value="'Désactivé'">
         <span style="color: #2980b9;">Dettes rapides ? {{ ctrl.dettes }}</span>
       </md-switch>
       
       <br />
+      
       <div layout="row" layout-align="center center">
 	    <md-button class="md-primary addGroup-form-button" ng-disabled="addGroupForm.$invalid" style="background-color: #2bbe69;">
 	      <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>

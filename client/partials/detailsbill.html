@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <md-dialog aria-label="Détails de la transaction">
-  <form>
+  <form name="detailsBillForm" ng-submit="submit()">
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>Détails de la transaction</h2>
@@ -11,31 +11,49 @@
         </md-button>
       </div>
     </md-toolbar>
+    
     <md-dialog-content style="max-width:800px;max-height:810px; ">
       <div class="md-dialog-content">
-      <md-input-container class="md-block">
-	    <label>Nom de la transaction :</label>
-	    <md-icon md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
-	    <input md-maxlength="250" type="text" name="name" ng-model="bill.name" ng-required="true">
-	    <div ng-messages="bill.name.$error">
-	      <div ng-message="required">Nom de la transaction manquant</div>
-	    </div>
-	  </md-input-container>
-	  <md-input-container class="md-block">
-	    <label>Prix de la transaction :</label>
-	    <md-icon md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
-	    <input md-maxlength="250" type="text" name="price" ng-model="bill.price" ng-required="true">
-	    <div ng-messages="bill.price.$error">
-	      <div ng-message="required">Prix de la transaction manquant</div>
-	    </div>
-	  </md-input-container>
+      	  <h3>Emetteur : {{ bill.owner }} </h3>
+      	  <h3>Groupe concerné : {{ bill.group }} </h3>
+      	  <h4>Mis à jour le {{ bill.updated }} </h4>
+      	  
+	      <md-input-container class="md-block">
+		    <label>Nom de la transaction :</label>
+		    <md-icon md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
+		    <input md-maxlength="250" type="text" name="name" ng-disabled="!ctrl.disabledDescription" ng-model="bill.description" ng-required="true">
+		    <div ng-messages="detailsBillForm.description.$error">
+		      <div ng-message="required">Nom de la transaction manquant</div>
+		    </div>
+		    
+		    <md-button ng-click="ctrl.disabledDescription = true" ng-show="!ctrl.disabledDescription" style="background-color: white; font-size: small;">
+		      <md-icon md-svg-src="img/up.svg" style="color: #2980b9; width:15px;"></md-icon>
+		      <span style="color: #2980b9; font-size:smaller;">Modifier</span>
+		    </md-button>
+		  </md-input-container>
+		  <md-input-container class="md-block">
+		    <label>Prix de la transaction :</label>
+		    <md-icon md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
+		    <input md-maxlength="250" type="text" name="value" ng-disabled="!ctrl.disabledValue" ng-model="bill.value" ng-required="true">
+		    <div ng-messages="detailsBillForm.value.$error">
+		      <div ng-message="required">Prix de la transaction manquant</div>
+		    </div>
+		    
+		    <md-button ng-click="ctrl.disabledValue = true" ng-show="!ctrl.disabledValue" style="background-color: white; font-size: small;">
+		      <md-icon md-svg-src="img/up.svg" style="color: #2980b9; width:15px;"></md-icon>
+		      <span style="color: #2980b9; font-size:smaller;">Modifier</span>
+		    </md-button>
+		  </md-input-container>
 	  </div>
     </md-dialog-content>
+    
     <md-dialog-actions layout="row">
       <md-button ng-click="delete()" target="_blank">
         Supprimer
       </md-button>
+      
       <span flex></span>
+      
       <md-button ng-click="cancel()">
         Annuler
       </md-button>

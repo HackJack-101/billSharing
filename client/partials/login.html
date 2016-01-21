@@ -5,19 +5,25 @@
     <md-input-container class="md-block">
         <label>Adresse mail :</label>
         <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
-        <input md-maxlength="250" type="email" name="mail" ng-model="login.email" ng-required="true">
-        <div ng-messages="loginForm.mail.$error">
-            <div ng-message="required">Adresse mail manquante.</div>
+        <input maxlength="250" type="email" name="email" ng-model="login.email" ng-pattern="/^.+@.+\..+$/" required>
+        <div ng-messages="loginForm.email.$error">
+        	<div ng-message="pattern">Adresse non-conforme</div>
+        	<div ng-message="maxlength">Adresse mail trop longue</div>
+            <div ng-message="required">Adresse mail manquante</div>
         </div>
     </md-input-container>
+    
     <md-input-container class="md-block">
         <label>Mot de passe :</label>
         <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
-        <input md-maxlength="250" type="password" name="password" ng-model="login.password" ng-required="true">
+        <input type="password" name="password" ng-model="login.password" minlength="4" maxlength="250" required>
         <div ng-messages="loginForm.password.$error">
-            <div ng-message="required">Mot de passe manquant.</div>
+            <div ng-message="minlength">Mot de passe doit contenir au moins 4 caractères</div>
+            <div ng-message="maxlength">Mot de passe trop long</div>
+            <div ng-message="required">Mot de passe manquant</div>
         </div>
     </md-input-container>
+    
     <div layout="row" layout-align="center center">
         <md-button class="md-primary login-form-button" ng-disabled="loginForm.$invalid" type="submit" style="background-color: #2bbe69;">
             <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>

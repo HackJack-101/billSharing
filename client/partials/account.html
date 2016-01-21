@@ -12,11 +12,13 @@
 	      <div ng-messages="accountForm.firstname.$error">
 	        <div ng-message="required">Prénom manquant.</div>
 	      </div>
+	      
 	      <md-button ng-click="ctrl.disabledFirstname = true" ng-show="!ctrl.disabledFirstname" style="background-color: white; font-size: small;">
 	        <md-icon md-svg-src="img/up.svg" style="color: #2980b9; width:15px;"></md-icon>
 	        <span style="color: #2980b9; font-size:smaller;">Modifier</span>
 	      </md-button>
 	    </md-input-container>
+	    
 	    <md-input-container class="md-block" flex-gt-sm>
 	      <label>Nom :</label>
 	      <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
@@ -24,12 +26,14 @@
 	      <div ng-messages="accountForm.lastname.$error">
 	        <div ng-message="required">Nom manquant.</div>
 	      </div>
+	      
 	      <md-button ng-click="ctrl.disabledLastname = true" ng-show="!ctrl.disabledLastname" style="background-color: white; font-size: small;">
 	        <md-icon md-svg-src="img/up.svg" style="color: #2980b9; width:15px;"></md-icon>
 	        <span style="color: #2980b9; font-size:smaller;">Modifier</span>
 	      </md-button>
 	    </md-input-container>
 	  </div>
+	  
 	  <div layout-gt-sm="row">
 		<md-input-container class="md-block" flex-gt-sm>
 		   <label>Adresse mail :</label>
@@ -38,11 +42,13 @@
 		   <div ng-messages="accountForm.mail.$error">
 		     <div ng-message="required">Adresse mail manquante.</div>
 		   </div>
+		   
 		   <md-button ng-click="ctrl.disabledEmail = true" ng-show="!ctrl.disabledEmail" style="background-color: white; font-size: small;">
 	        <md-icon md-svg-src="img/up.svg" style="color: #2980b9; width:15px;"></md-icon>
 	        <span style="color: #2980b9; font-size:smaller;">Modifier</span>
 	      </md-button>
 		 </md-input-container>
+		 
 		 <md-input-container class="md-block" flex-gt-sm>
 		   <label>Numéro de téléphone (facultatif):</label>
 		   <md-icon md-svg-src="img/smartphone.svg" style="color: #2980b9;"></md-icon>
@@ -50,12 +56,14 @@
 		   <div ng-messages="accountForm.number.$error">
 		     <div ng-message="md-maxlength">Les 10 chiffres doivent se suivre : XXXXXXXXXX</div>
 		   </div>
+		   
 		   <md-button ng-click="ctrl.disabledNumber = true" ng-show="!ctrl.disabledNumber" style="background-color: white; font-size: small;">
 	        <md-icon md-svg-src="img/up.svg" style="color: #2980b9; width:15px;"></md-icon>
 	        <span style="color: #2980b9; font-size:smaller;">Modifier</span>
 	      </md-button>
 		 </md-input-container>
 	   </div>
+	   
 	   <div layout-gt-sm="row">
 	    <md-input-container class="md-block" flex-gt-sm>
 	      <label>Votre mot de passe actuel:</label>
@@ -64,12 +72,14 @@
 	      <div ng-messages="accountForm.password.$error">
 	        <div ng-message="required">Mot de passe manquant.</div>
 	      </div>
+	      
 	      <md-button ng-click="ctrl.disabledPassword = true" ng-show="!ctrl.disabledPassword" style="background-color: white; font-size: small;">
 	        <md-icon md-svg-src="img/up.svg" style="color: #2980b9; width:15px;"></md-icon>
 	        <span style="color: #2980b9; font-size:smaller;">Modifier</span>
 	      </md-button>
 	    </md-input-container>
 	  </div>
+	  
 	  <div layout="row" layout-align="center center">
 	    <md-button class="md-primary register-form-button" ng-disabled="accountForm.$invalid" style="background-color: #2bbe69;">
 		  <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
