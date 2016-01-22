@@ -249,9 +249,9 @@ userController.controller('userController', function ($scope, $cookies, $locatio
                 }).error(function(data) {
                     console.log('Error: ' + data);
                 });
-            }
-
-                    .error(function (data) {
-            //             console.log('Error: ' + data);
+            }}).error(function (data) {
+                    console.log('Error: ' + data);
+                });
+        };
 
 });
