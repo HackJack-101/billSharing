@@ -27,7 +27,7 @@
   "engines": {
     "node": "*"
   },
-  "private": true,
+  "private": false,
   "license": "None",
   "homepage": "https://github.com/Jack3113/billSharing#readme",
   "main": "index.js",
