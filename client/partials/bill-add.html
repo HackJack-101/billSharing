@@ -18,7 +18,7 @@
         <md-input-container class="md-block">
             <label>Description de la transaction :</label>
             <md-icon md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
-            <input type="text" name="description" ng-model="addBill.description" md-maxlength="2" required>
+            <input type="text" name="description" ng-model="addBill.description" md-maxlength="250" required>
             
             <div ng-messages="addBillForm.description.$error">
             	<div ng-message="md-maxlength">Description de la transaction trop longue (max 250 caractères)</div>

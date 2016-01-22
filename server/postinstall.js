@@ -351,7 +351,7 @@ alice.save(function(err, res) {
                                             owner: jennyID,
                                             group: aliceJennyID,
                                             currency: "EUR",
-                                            value: 60
+                                            value: 35
                                         });
                                         hmMango.save(function(err, res) {
                                             if (err)
