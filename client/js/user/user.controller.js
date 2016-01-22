@@ -81,6 +81,27 @@ userController.controller('addFriendController', function ($scope, $cookies, $lo
     };
 });
 
+userController.controller('userFriendsController', function ($scope, $cookies, $location, User) {
+
+// Get logged user
+    $scope.user = $cookies.getObject('user');
+    if ($cookies.getObject('user'))
+        $scope.user = $cookies.getObject('user');
+    else
+        $location.path("/login").replace();
+
+
+    $scope.friends = [];
+    for (var i = 0; i < $scope.user.friends.length; i++) {
+        User.get($scope.user.friends[i]).success(function (data) {
+            $scope.friends.push(data);
+
+        }).error(function (data) {
+            console.log('Error: ' + data);
+        });
+    }
+});
+
 userController.controller('userController', function ($scope, $cookies, $location, User, Group) {
 
 // Get logged user
@@ -216,34 +237,6 @@ userController.controller('userController', function ($scope, $cookies, $locatio
                 console.log('Error: ' + data);
             });
         }
-    };
-
-    $scope.addFriend = function () {
-
-        User.getByEmail($scope.friend).success(function (data) {
-            $scope.user.friends.push(data._id);
-
-            User.editFriends($scope.user, $scope.user.friends).success(function (data) {
-                $scope.response = data;
-            })
-                    .error(function (data) {
-                        console.log('Error: ' + JSON.stringify(data));
-                    });
-
-
-            // User.edit($scope.user).success(function (data) {
-            //     $scope.response = data;
-            // })
-            //         .error(function (data) {
-            //             console.log('Error: ' + data);
-            //         });
-
-        })
-                .error(function (data) {
-                    console.log('Fail to add friend. Error : ' + JSON.stringify(data));
-                });
-
-
     };
 
 });
