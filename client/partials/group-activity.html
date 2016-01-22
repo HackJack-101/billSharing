@@ -7,7 +7,7 @@
         <div layout="row" layout-align="center center">
             <h2 style="color: #2980b9;">{{group.name}} - Activités récentes</h2>
         </div>
-
+        <md-button class="md-raised md-warn" ng-model="group" ng-click="delete()">Supprimer</md-button>
         <md-list style="width: 100%;">
             <!--<md-subheader class="md-no-sticky" style="background-color: #d3d3d3;">Janvier 2016</md-subheader>-->
             <md-list-item class="md-3-line" ng-repeat="bill in bills| orderBy: 'updated'" style="background-color: white;">

@@ -44,13 +44,14 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
 
 
     $scope.add = function (groupToCreate) {
-        alert("hello" + JSON.stringify(groupToCreate));
         var newGroup = {name: groupToCreate.name,
                         friends: []};
         newGroup.friends.push($scope.user._id);
         Group.add(newGroup).success(function (data) {
             $scope.response = data;
             console.log('ok: ' + JSON.stringify(data));
+            $location.path("/groups").replace();
+
         })
                 .error(function (data) {
                     console.log('Error: ' + JSON.stringify(data));
@@ -65,9 +66,10 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
                     console.log('Error: ' + data);
                 });
     };
-    $scope.delete = function (id) {
-        Group.delete(id).success(function (data) {
+    $scope.delete = function () {
+        Group.delete($scope.group._id).success(function (data) {
             $scope.response = data;
+            $location.path("/groups").replace();
             console.log("Deleted group with id : " + id);
         })
                 .error(function (data) {
