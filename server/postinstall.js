@@ -158,7 +158,7 @@ dexter.save(function (err, res) {
                 if (err)
                     throw err;
                 console.log(res);
-                allanID = res["_id"];
+                jennyID = res["_id"];
                 var dexterAllanJenny = new Group(
                 {
                     name: "Dexter & Allan & Jenny",

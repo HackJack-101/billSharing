@@ -18,13 +18,13 @@
             md-row-height-gt-md="1:1" md-row-height="2:2"
             md-gutter="12px" md-gutter-gt-sm="8px">
             <md-grid-tile md-colspan="2" md-colspan-sm="2" style="background-color: #d3d3d3;">
-                <h4>Total transaction : {{ctrl.total}}€</h4>
+                <h4>Total transaction : {{user.value}} €</h4>
             </md-grid-tile>
             <md-grid-tile md-colspan="2" md-colspan-sm="2" style="background-color: #d3d3d3;">
-                <h4>On vous doit : {{ctrl.totalRembourse}}€</h4>
+                <h4>On vous doit : {{excess(user.value)}} €</h4>
             </md-grid-tile>
             <md-grid-tile md-colspan="2" md-colspan-sm="2" style="background-color: #d3d3d3;">
-                <h4>Vous devez : {{ctrl.totalEmprunte}}€</h4>
+                <h4>Vous devez : {{deficit(user.value)}} €</h4>
             </md-grid-tile>
         </md-grid-list>
 
@@ -35,7 +35,7 @@
             <md-grid-tile md-colspan="3" md-colspan-sm="3">
                 <md-list style="width: 100%; top: 0; left: 0; position: inherit;">
                     <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;">Liste des remboursements :</md-subheader>
-                    <md-list-item style="background-color: white;" ng-repeat="friend in friends| orderBy: 'updated' track by $index" >
+                    <md-list-item style="background-color: white;" ng-repeat="friend in friends| orderBy: 'updated' track by $index" ng-hide="friend.value > 0">
                         <img alt="" ng-src="" class="md-avatar" />
                         <p>
                             <b>{{friend.firstName}} {{friend.lastName}}</b> vous doit : <span class="md-secondary md-hue-3"> {{friend.value}} €</span>
@@ -48,11 +48,11 @@
             <md-grid-tile md-colspan="3" md-colspan-sm="3">
                 <md-list style="width: 100%; top: 0; right: 0; position: inherit;">
                     <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;">Liste des emprunts :</md-subheader>
-                    <md-list-item style="background-color: white;" ng-click="goToFriend(emprunt.idFriend)">
-                        <img alt="{{emprunt.name}}" ng-src="{{emprunt.img}}" class="md-avatar" />
-                        <h4>{{emprunt.name}}</h4>
-                        <p>, vous lui devez :</p>
-                        <span class="md-secondary md-hue-3"> {{emprunt.montant}} €</span>
+                    <md-list-item style="background-color: white;" ng-repeat="friend in friends| orderBy: 'updated' track by $index" ng-hide="friend.value < 0">
+                        <img alt="{{friend.firstName}} {{friend.lastName}}'s avatar" ng-src="http://hackjack.info/randomizer/avatar{{friend.id}}" class="md-avatar" />
+                        <p>
+                            <b>{{friend.firstName}} {{friend.lastName}}</b>, vous lui devez : <span class="md-secondary md-hue-3"> {{friend.value}} €</span>
+                        </p>
                         <md-divider></md-divider>
                     </md-list-item>
                 </md-list>
