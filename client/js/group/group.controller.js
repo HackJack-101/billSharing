@@ -20,7 +20,7 @@ groupControllers.controller('groupsController', function ($scope, $cookies, $loc
     });
 });
 
-groupControllers.controller('groupController', function ($scope, $cookies, $location, $routeParams, Group) {
+groupControllers.controller('groupController', function ($scope, $cookies, $location, $routeParams, Group, User) {
     
     // Get logged user
     $scope.user = $cookies.getObject('user');
@@ -42,6 +42,19 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
         console.log('Error: ' + JSON.stringify(data));
     });
 
+
+
+
+        $scope.friends = [];
+        // for each id in friends, it will get more information than only "id"
+        for (var i = 0; i < $scope.user.friends.length; i++) {
+            User.get($scope.user.friends[i]).success(function (data) {
+                $scope.friends.push(data);
+
+            }).error(function (data) {
+                console.log('Error: ' + data);
+            });
+        }
 
     $scope.add = function (groupToCreate) {
         var newGroup = {name: groupToCreate.name,

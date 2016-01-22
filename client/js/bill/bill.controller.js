@@ -2,7 +2,23 @@
 
 angular.module('app.controller.bill', ['app'])
 
-.controller('billController', function($scope, Bill) {
+.controller('billController', function($scope, $cookies, $location, User, Bill) {
+
+
+       // Get logged user
+    $scope.user = $cookies.getObject('user');
+    if ($cookies.getObject('user'))
+        $scope.user = $cookies.getObject('user');
+    else
+        $location.path("/login").replace();
+
+    // Get user groups
+    User.getGroupsByUserId($scope.user._id).success(function (data) {
+        $scope.groups = data;
+    }).error(function (data) {
+        console.log('Error: ' + data);
+    });
+
 
     $scope.getAll = function() {
         Bill.getAll().success(function(data) {

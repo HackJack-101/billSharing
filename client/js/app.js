@@ -59,7 +59,7 @@ app.config(['$routeProvider',
                 }).
                 when('/bill/', {
                     templateUrl: 'partials/bill-add.html',
-                    controller: ''
+                    controller: 'billController'
                 }).
                 when('/payment/', {
                     templateUrl: 'partials/user-payment.html',

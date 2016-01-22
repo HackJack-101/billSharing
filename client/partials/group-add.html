@@ -26,12 +26,12 @@
             md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
             md-search-text="ctrl.searchText"
             md-selected-item-change="ctrl.selectedItemChange(friend)"
-            md-items="friend in ctrl.querySearch(ctrl.searchText)"
-            md-item-text="friend.display"
+            md-items="friend in friends"
+            md-item-text="friend.lastName"
             md-min-length="0"
             placeholder="Nom ou prénom de votre ami">
             <md-item-template>
-                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{friend.display}}</span>
+                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{friend.firstName}} {{friend.lastName}}</span>
             </md-item-template>
             <md-not-found>
                 Aucun ami "{{ctrl.searchText}}" a été trouvé.

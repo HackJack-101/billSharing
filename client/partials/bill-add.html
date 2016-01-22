@@ -49,12 +49,12 @@
             md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
             md-search-text="ctrl.searchText"
             md-selected-item-change="ctrl.selectedItemChange(group)"
-            md-items="group in ctrl.querySearch(ctrl.searchText)"
-            md-item-text="group.display"
+            md-items="group in groups"
+            md-item-text="group.name"
             md-min-length="0"
             placeholder="Nom du groupe">
             <md-item-template>
-                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{group.display}}</span>
+                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{group.name}}</span>
             </md-item-template>
             <md-not-found>
                 Aucun groupe "{{ctrl.searchText}}" a été trouvé.
