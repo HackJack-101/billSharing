@@ -16,6 +16,17 @@ exports.get = function (req, res) {
     });
 };
 
+exports.getByEmail = function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    console.log("req email : "+req.body.email);
+    User.findOne({email: req.body.email}, function (err, data) {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.send(JSON.stringify(data));
+        }
+    });
+};
 exports.getAll = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     User.find(function (err, data) {

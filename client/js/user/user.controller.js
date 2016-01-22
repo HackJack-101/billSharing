@@ -41,7 +41,7 @@ userController.controller('userActivityController', function ($scope, $cookies, 
 
 });
 
-userController.controller('userController', function ($scope, $cookies, $location, User) {
+userController.controller('userController', function ($scope, $cookies, $location, User, $http) {
 
 // Get logged user
     $scope.user = $cookies.getObject('user');
@@ -116,22 +116,28 @@ userController.controller('userController', function ($scope, $cookies, $locatio
 
     $scope.addFriend = function () {
 
-            alert("id : "+$scope.user._id +" friend : "+$scope.friend);
                 
             User.getByEmail($scope.friend).success(function (data) {
+                $scope.user.friends.push(data._id);
 
-                $scope.user.friends.push(data);
-
-                User.edit(user).success(function (data) {
+                User.editFriends($scope.user, $scope.user.friends).success(function (data) {
                     $scope.response = data;
                 })
                         .error(function (data) {
-                            console.log('Error: ' + data);
+                            console.log('Error: ' + JSON.stringify(data));
                         });
+
+
+                // User.edit($scope.user).success(function (data) {
+                //     $scope.response = data;
+                // })
+                //         .error(function (data) {
+                //             console.log('Error: ' + data);
+                //         });
 
                 })
                     .error(function (data) {
-                        console.log('Fail to add friend. Error : ' + data);
+                        console.log('Fail to add friend. Error : ' + JSON.stringify(data));
                     });
 
 

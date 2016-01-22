@@ -7,6 +7,7 @@ var router = express.Router();
 
 router.get('/', controller.getAll);
 router.get('/:id', controller.get);
+router.post('/email', controller.getByEmail);
 router.get('/:id/paymentsReceived', controller.getPaymentsReceived);
 router.get('/:id/payments', controller.getPayments);
 router.get('/:id/billsPaid', controller.getBillsPaid);

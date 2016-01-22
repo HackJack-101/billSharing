@@ -8,6 +8,9 @@ angular.module('app.service.user', ['app'])
                 get: function (id) {
                     return $http.get('/api/user/' + id);
                 },
+                getByEmail: function (data) {
+                    return $http.post('/api/user/email', {email: data});
+                },
                 getAll: function () {
                     return $http.get('/api/user/');
                 },
@@ -28,6 +31,17 @@ angular.module('app.service.user', ['app'])
                 },
                 edit: function (user) {
                     return $http.put('/api/user/', user);
+                },
+                editFriends: function (user, friends) {
+                    var friendsSTR = "friends:"+JSON.stringify(friends);
+                    alert(JSON.stringify(friends));
+                    // return $http.put('/api/user/'+ user, friendsSTR);
+                    return $http({
+                     method: 'PUT',
+                     url: '/api/user/'+ user._id,
+                     headers: {'Content-Type': "application/json"},
+                     data: friendsSTR
+                });
                 },
                 delete: function (id) {
                     return $http.delete('/api/user/' + id);
