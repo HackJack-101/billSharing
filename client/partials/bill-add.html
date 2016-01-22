@@ -1,0 +1,73 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div>
+    <h1 class="title-form">Création d'une transaction</h1>
+
+    <form name="addBillForm" name="addGroupForm" ng-submit="submit()">
+    	<md-input-container class="md-block">
+            <label>Nom de la transaction :</label>
+            <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
+            <input type="text" name="name" ng-model="addBill.name" md-maxlength="250" required>
+            
+            <div ng-messages="addBillForm.name.$error">
+            	<div ng-message="md-maxlength">Nom de la transaction trop long (max 250 caractères)</div>
+                <div ng-message="required">Nom de la transaction manquant</div>
+            </div>
+        </md-input-container>
+    	
+        <md-input-container class="md-block">
+            <label>Description de la transaction :</label>
+            <md-icon md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
+            <input type="text" name="description" ng-model="addBill.description" md-maxlength="250" required>
+            
+            <div ng-messages="addBillForm.description.$error">
+            	<div ng-message="md-maxlength">Description de la transaction trop longue (max 250 caractères)</div>
+                <div ng-message="required">Description de la transaction manquante</div>
+            </div>
+        </md-input-container>
+        
+        <md-input-container class="md-block">
+            <label>Prix de la transaction :</label>
+            <md-icon md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
+            <input type="text" name="value" ng-model="addBill.value" md-maxlength="20" required>
+            
+            <div ng-messages="addBillForm.value.$error">
+            	<div ng-message="md-maxlength">Prix de la transaction trop élevé (max 20 chiffres)</div>
+                <div ng-message="required">Prix de la transaction manquant</div>
+            </div>
+        </md-input-container>
+
+        <br />
+
+        <h2 style="color: #2980b9;">Assigner à quel groupe ?</h2>
+        <md-autocomplete
+            id="inputAssignGroup"
+            name="inputAssignGroup"
+            ng-disabled="false"
+            md-no-cache="false"
+            md-selected-item="ctrl.selectedItem"
+            md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+            md-search-text="ctrl.searchText"
+            md-selected-item-change="ctrl.selectedItemChange(group)"
+            md-items="group in groups"
+            md-item-text="group.name"
+            md-min-length="0"
+            placeholder="Nom du groupe">
+            <md-item-template>
+                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{group.name}}</span>
+            </md-item-template>
+            <md-not-found>
+                Aucun groupe "{{ctrl.searchText}}" a été trouvé.
+            </md-not-found>
+        </md-autocomplete>
+
+        <br />
+
+        <div layout="row" layout-align="center center">
+            <md-button class="md-primary" ng-disabled="addBillForm.$invalid" style="background-color: #2bbe69;">
+                <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
+                <span style="color: white; font-size:large;">Valider</span>
+            </md-button>
+        </div>
+    </form>
+</div>

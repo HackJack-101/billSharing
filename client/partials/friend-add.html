@@ -1,0 +1,37 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div>
+    <h1 class="title-form">Ajout d'un ami</h1>
+
+    <form id="addFriendForm" name="addGroupForm" ng-submit="addFriend()">
+        <div layout="row" layout-align="center center" ng-show="hasError">
+            <h3 style="color: rgb(221,44,0);">E-mail non trouvé. Veuillez réessayer.</h3>
+        </div>
+        <div layout="row" layout-align="center center" ng-show="alreadyAdded">
+            <h3 style="color: rgb(221,44,0);">{{lastfriend}} est déjà votre ami·e.</h3>
+        </div>
+        <div layout="row" layout-align="center center" ng-show="success">
+            <h3 style="color: rgb(221,44,0);">{{lastfriend}} est maintenant votre ami·e.</h3>
+        </div>
+
+        <md-input-container class="md-block">
+            <label>E-mail de votre ami :</label>
+            <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
+            <input type="email" name="email" ng-model="email" md-maxlength="250" required>
+
+            <div ng-messages="addFriendForm.mail.$error">
+                <div ng-message="required">E-mail de votre ami trop long</div>
+                <div ng-message="required">E-mail de votre ami manquant</div>
+            </div>
+        </md-input-container>
+
+        <br />
+
+        <div layout="row" layout-align="center center">
+            <md-button class="md-primary" ng-disabled="addFriendForm.$invalid" style="background-color: #2bbe69;" type="submit">
+                <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
+                <span style="color: white; font-size:large;">Envoyer une invitation</span>
+            </md-button>
+        </div>      
+    </form>
+</div>

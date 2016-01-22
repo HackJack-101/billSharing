@@ -1,0 +1,48 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<h1 class="title-form">Connexion</h1>
+<form name="loginForm" ng-submit="login()">
+    <div layout="row" layout-align="center center" ng-show="hasError">
+        <h3 style="color: rgb(221,44,0);">Combinaison email/mot de passe erronée.</h3>
+    </div>
+    <md-input-container class="md-block">
+        <label>Adresse mail :</label>
+        <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
+        <input maxlength="250" type="email" name="email" ng-model="login.email" ng-pattern="/^.+@.+\..+$/" required>
+        <div ng-messages="loginForm.email.$error">
+            <div ng-message="pattern">Adresse non-conforme</div>
+            <div ng-message="maxlength">Adresse mail trop longue</div>
+            <div ng-message="required">Adresse mail manquante</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Mot de passe :</label>
+        <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
+        <input type="password" name="password" ng-model="login.password" minlength="4" maxlength="250" required>
+        <div ng-messages="loginForm.password.$error">
+            <div ng-message="minlength">Mot de passe doit contenir au moins 4 caractères</div>
+            <div ng-message="maxlength">Mot de passe trop long</div>
+            <div ng-message="required">Mot de passe manquant</div>
+        </div>
+    </md-input-container>
+
+    <div layout="row" layout-align="center center">
+        <md-button class="md-primary login-form-button" ng-disabled="loginForm.$invalid" type="submit" style="background-color: #2bbe69;">
+            <md-icon md-svg-src="img/check.svg" style="color: white;"></md-icon>
+            <span style="color: white; font-size:large;">Valider</span>
+        </md-button>
+    </div>
+</form>
+
+<br />
+
+<h2 class="title-form">Pas encore de compte ?</h2>
+<div layout="row" layout-align="center center">
+    <md-button class="md-primary register-button" style="background-color: #2980b9; margin-top: -5px;" href="/#/register">
+        <md-icon md-svg-src="img/familiar.svg" style="color: white;"></md-icon>
+        <span style="color: white;">S'enregistrer</span>
+    </md-button>
+</div>
+
+<br />
