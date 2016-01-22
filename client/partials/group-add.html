@@ -15,32 +15,32 @@
         </md-input-container>
 
         <br />
-
+		
         <h2 style="color: #2980b9;">Des amis à ajouter ?</h2>
-        <md-autocomplete
-            id="inputAddFriend"
-            name="inputAddFriend"
-            ng-disabled="false"
-            md-no-cache="false"
-            md-selected-item="ctrl.selectedItem"
-            md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
-            md-search-text="ctrl.searchText"
-            md-selected-item-change="ctrl.selectedItemChange(friend)"
-            md-items="friend in friends"
-            md-item-text="friend.lastName"
-            md-min-length="0"
-            placeholder="Nom ou prénom de votre ami">
-            <md-item-template>
-                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{friend.firstName}} {{friend.lastName}}</span>
-            </md-item-template>
-            <md-not-found>
-                Aucun ami "{{ctrl.searchText}}" a été trouvé.
-                <a href="/#/addfriend">Inviter cette personne ?</a>
-            </md-not-found>
-        </md-autocomplete>
+        <md-autocomplete ng-repeat="autocomplete in autocompletes"     
+		    id="inputAddFriend1"
+		    name="inputAddFriend1"
+		    ng-disabled="false"
+		    md-no-cache="false"
+		    md-selected-item="ctrl.selectedItem"
+		    md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+		    md-search-text="ctrl.searchText"
+		    md-selected-item-change="ctrl.selectedItemChange(friend)"
+		    md-items="friend in friends"
+		    md-item-text="friend.lastName"
+		    md-min-length="0"
+		    placeholder="Nom ou prénom de votre ami">
+		    <md-item-template>
+		        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{friend.firstName}} {{friend.lastName}}</span>
+		    </md-item-template>
+		    <md-not-found>
+		        Aucun ami "{{ctrl.searchText}}" a été trouvé.
+		        <a href="/#/addfriend">Inviter cette personne ?</a>
+		    </md-not-found>
+		</md-autocomplete>
 
         <md-button class="md-primary addGroupFriend-form-button" style="color: #2980b9;"
-                   ng-click="$('inputAddFriend').clone().appendTo('addGroupForm');">
+                   ng-click="addAutocomplete();">
             <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
             <span style="color: #2980b9; font-size:smaller;">Ajouter un autre ami</span>
         </md-button>

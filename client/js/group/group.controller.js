@@ -112,6 +112,7 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
                     console.log('Error: ' + data);
                 });
     };
+    
     $scope.delete = function () {
         Group.delete($scope.group._id).success(function (data) {
             $scope.response = data;
@@ -122,5 +123,13 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
                     console.log('Fail to delete group with id : ' + id + '. Error : ' + data);
                 });
     };
+    
+    $scope.autocompletes = [];
+    $scope.addAutocomplete = function () {
+      $scope.autocompletes.push({
+         oneMore: '',
+      });
+	};
+    $scope.addAutocomplete();
 
 });

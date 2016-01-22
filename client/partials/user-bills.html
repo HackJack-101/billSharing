@@ -18,10 +18,28 @@
                 <label>Vous cherchez une transaction ?</label>
                 <input id="search-payment" ng-model="queryPayment"/>
             </md-input-container>
+            
+            <md-input-container class="md-block" flex-gt-sm>
+            	<label>Trier par :</label>
+            	<md-select ng-model="orderByAttribute">
+            	  <md-option value="updated" selected>
+		             Date
+		          </md-option>
+		          <md-option value="name">
+		             Nom
+		          </md-option>
+		          <md-option value="group">
+		             Groupe
+		          </md-option>
+		          <md-option value="value">
+		             Montant
+		          </md-option>
+		        </md-select>
+		    </md-input-container>
         </md-content>
 
         <md-list style="width: 100%;" ng-controller="userController">
-            <md-list-item  ng-repeat="payment in payments | filter : queryPayment | orderBy : 'description'" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
+            <md-list-item  ng-repeat="payment in payments | filter : queryPayment | orderBy : orderByAttribute" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
                 <div class="md-list-item-text" layout="column">
                     <h3>{{ payment.description}}ouais</h3>
                     <h4>{{ payment.updated}}12/09/1992</h4>
