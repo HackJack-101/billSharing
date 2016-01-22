@@ -41,7 +41,7 @@ userController.controller('userActivityController', function ($scope, $cookies, 
 
 });
 
-userController.controller('userController', function ($scope, $cookies, $location, User) {
+userController.controller('userController', function ($scope, $cookies, $location, User, Group) {
 
 // Get logged user
     $scope.user = $cookies.getObject('user');
@@ -49,6 +49,47 @@ userController.controller('userController', function ($scope, $cookies, $locatio
         $scope.user = $cookies.getObject('user');
     else
         $location.path("/login").replace();
+    $scope.bills = [];
+    $scope.friends = {};
+    $scope.debts = 0;
+
+    var id = $scope.user._id;
+
+    // Get user groups
+    User.getGroupsByUserId(id).success(function (data) {
+        $scope.groups = data;
+    }).then(function () {
+        for (var i = 0; i < $scope.groups.length; i++)
+        {
+            var groupID = $scope.groups[i]._id;
+            var friends = $scope.groups[i].friends;
+            for (var k = 0; k < friends.length; k++)
+            {
+                var friendID = friends[k];
+                if (!$scope.friends[friendID])
+                {
+                    $scope.friends[friendID] = {id: friendID, value: 0, lastName: "", firstName: ""};
+                    User.get(friendID).success(function (data) {
+                        $scope.friends[data._id].firstName = data.firstName;
+                        $scope.friends[data._id].lastName = data.lastName;
+                    });
+                }
+            }
+            Group.getBills(groupID).success(function (data) {
+                for (var j = 0; j < data.length; j++)
+                {
+                    var sum = data[j].value / friends.length;
+                    var owner = data[j].owner;
+                    for (var l = 0; l < friends.length; l++)
+                    {
+                        var friendID = friends[l];
+                        if (friendID != owner)
+                            $scope.friends[friendID].value += sum;
+                    }
+                }
+            });
+        }
+    });
 
     $scope.getAll = function () {
         User.getAll().success(function (data) {
@@ -61,10 +102,9 @@ userController.controller('userController', function ($scope, $cookies, $locatio
     $scope.get = function (id) {
         User.get(id).success(function (data) {
             $scope.user = data;
-        })
-                .error(function (data) {
-                    console.log('Error: ' + JSON.stringify(data));
-                });
+        }).error(function (data) {
+            console.log('Error: ' + JSON.stringify(data));
+        });
     };
     $scope.getPaymentsByUserId = function (id) {
         User.getPaymentsByUserId(id).success(function (data) {
@@ -119,8 +159,8 @@ userController.controller('userController', function ($scope, $cookies, $locatio
 
     $scope.addFriend = function () {
 
-                alert("id : "+$scope.user._id +" friend : "+$scope.friend);
-                // $scope.friend = 
+        alert("id : " + $scope.user._id + " friend : " + $scope.friend);
+        // $scope.friend = 
 
     };
 
