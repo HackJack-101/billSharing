@@ -57,7 +57,7 @@ var allan = new User(
         {
             firstName: "Allan",
             lastName: "Toiko",
-            email: "alln@toiko.com",
+            email: "allan@toiko.com",
             phone: "+33000000003",
             password: "543210",
             friends: []
@@ -69,13 +69,15 @@ var jenny = new User(
         {
             firstName: "Jenny",
             lastName: "Pomme",
-            email: "jenny@jenny.jenny",
+            email: "jenny@jenny.com",
             phone: "+33000000004",
             password: "password",
             friends: []
         }
 );
 var jennyID = null;
+
+var aliceBobID = null;
 
 //Alice
 alice.save(function (err, res) {
@@ -99,7 +101,7 @@ alice.save(function (err, res) {
             if (err)
                 throw err;
             console.log(res);
-            var aliceBobID = res["_id"];
+            aliceBobID = res["_id"];
             var restaurant = new Bill(
                     {
                         name: "Restaurant",
@@ -197,9 +199,6 @@ dexter.save(function (err, res) {
                     if (err)
                         throw err;
                     console.log(res);
-
-                    console.log("Jeu de données ajouté.");
-                    process.exit();
                 });
             });
         });
@@ -277,4 +276,163 @@ payment4.save(function (err, res) {
     if (err)
         throw err;
     console.log(res);
+});
+
+// Alice, Allan -> Groupe "Coloc" -> Bill d'Alice "Courses S3" -> Bill d'Alice "Loyer" -> Bill d'Allan "Internet" -> Payment d
+var aliceAllanID = null;
+
+var aliceAllan = new Group(
+        {
+            name: "Coloc",
+            friends: [aliceID, allanID]
+        }
+);
+aliceAllan.save(function (err, res)
+{
+    if (err)
+        throw err;
+    console.log(res);
+    aliceAllanID = res["_id"];
+    var coursesS3 = new Bill(
+            {
+                name: "Courses S3",
+                description: "Courses pour la semaine 3",
+                owner: aliceID,
+                group: aliceAllanID,
+                currency: "EUR",
+                value: 105
+            }
+    );
+    coursesS3.save(function (err, res) {
+        if (err)
+            throw err;
+        console.log(res);
+        var loyer = new Bill(
+                {
+                    name: "Loyer de la maison",
+                    description: "Loyer pour la location de la maison. Prochain mois c'est toi",
+                    owner: aliceID,
+                    group: aliceAllanID,
+                    currency: "EUR",
+                    value: 850
+                }
+        );
+        loyer.save(function (err, res) {
+            if (err)
+                throw err;
+            console.log(res);
+            var internet = new Bill(
+                    {
+                        name: "Forfait Internet",
+                        description: "Paiement du forfait pour la ligne Internet. Moi toujours prochain mois",
+                        owner: allanID,
+                        group: aliceAllanID,
+                        currency: "EUR",
+                        value: 40
+                    }
+            );
+            internet.save(function (err, res) {
+                if (err)
+                    throw err;
+                console.log(res);
+                
+                var paymentInternet = new Payment(
+                        {
+                            description: "Internet",
+                            from: aliceID,
+                            to: allanID,
+                            group: aliceAllanID,
+                            currency: "EUR",
+                            value: 20
+                        }
+                );
+                paymentInternet.save(function (err, res) {
+                    if (err)
+                        throw err;
+                    console.log(res);
+                });
+            });
+        });
+    });
+});
+
+//Alice, Jenny -> Groupe "Shopping" -> Bill d'Alice "Soldes Camaieu 10/01/16" -> Bill de Jenny "Starbucks 16/01/16" -> Bill de Jenny "Taxi 16/01/16" 
+var aliceJennyID = null;
+
+var aliceJenny = new Group(
+        {
+            name: "Shopping",
+            friends: [aliceID, jennyID]
+        }
+);
+aliceJenny.save(function (err, res)
+{
+    if (err)
+        throw err;
+    console.log(res);
+    aliceJennyID = res["_id"];
+    var camaieu = new Bill(
+            {
+                name: "Soldes Camaieu 10/01/16",
+                description: "Achat d'une robe de soirée chez Camaieu -50%",
+                owner: aliceID,
+                group: aliceJennyID,
+                currency: "EUR",
+                value: 35
+            }
+    );
+    camaieu.save(function (err, res) {
+        if (err)
+            throw err;
+        console.log(res);
+        var starbucks = new Bill(
+                {
+                    name: "Starbucks 16/01/16",
+                    description: "Petite pause café l'après-midi à Rives d'Arcins",
+                    owner: jennyID,
+                    group: aliceJennyID,
+                    currency: "EUR",
+                    value: 12
+                }
+        );
+        starbucks.save(function (err, res) {
+            if (err)
+                throw err;
+            console.log(res);
+            var hmMango = new Bill(
+                    {
+                        name: "Taxi 16/01/16",
+                        description: "Taxi pour aller à Gare Saint Jean",
+                        owner: jennyID,
+                        group: aliceJennyID,
+                        currency: "EUR",
+                        value: 60
+                    }
+            );
+            hmMango.save(function (err, res) {
+                if (err)
+                    throw err;
+                console.log(res);
+                
+                var paymentCamaieu = new Payment(
+                        {
+                            description: "Remboursement robe soirée Camaieu",
+                            from: jennyID,
+                            to: aliceID,
+                            group: aliceJennyID,
+                            currency: "EUR",
+                            value: 12
+                        }
+                );
+                paymentCamaieu.save(function (err, res) {
+                    if (err)
+                        throw err;
+                    console.log(res);
+                
+	                console.log("Jeu de données ajouté.");
+	                process.exit();
+                });
+            });
+        });
+    });
 });

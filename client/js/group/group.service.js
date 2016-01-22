@@ -13,6 +13,9 @@ angular.module('app.service.group', ['app'])
             },
             getBills : function(id) {
                 return $http.get('/api/group/' + id + '/bills');
+            },
+            getBillsByUserId : function(id, userID) {
+                return $http.get('/api/group/' + id + '/user/' + userID + '/bills/');
             },           
             add : function(group) {
                 return $http.post('/api/group/', group);
