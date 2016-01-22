@@ -52,6 +52,7 @@ userController.controller('userController', function ($scope, $cookies, $locatio
     $scope.bills = [];
     $scope.friends = {};
     $scope.debts = 0;
+    $scope.user.value = 0;
 
     var id = $scope.user._id;
 
@@ -66,7 +67,7 @@ userController.controller('userController', function ($scope, $cookies, $locatio
             for (var k = 0; k < friends.length; k++)
             {
                 var friendID = friends[k];
-                if (!$scope.friends[friendID])
+                if (!$scope.friends[friendID] && friendID != $scope.user._id)
                 {
                     $scope.friends[friendID] = {id: friendID, value: 0, lastName: "", firstName: ""};
                     User.get(friendID).success(function (data) {
@@ -76,20 +77,38 @@ userController.controller('userController', function ($scope, $cookies, $locatio
                 }
             }
             Group.getBills(groupID).success(function (data) {
+                var sum = 0;
                 for (var j = 0; j < data.length; j++)
                 {
-                    var sum = data[j].value / friends.length;
+                    sum += data[j].value;
                     var owner = data[j].owner;
-                    for (var l = 0; l < friends.length; l++)
-                    {
-                        var friendID = friends[l];
-                        if (friendID != owner)
-                            $scope.friends[friendID].value += sum;
-                    }
+                    if (owner == $scope.user._id)
+                        $scope.user.value += data[j].value;
+                    else
+                        $scope.friends[owner].value += data[j].value;
                 }
+                var avg = sum / friends.length;
+                for (var l = 0; l < friends.length; l++)
+                {
+                    var friendID = friends[l];
+                    if (friendID == $scope.user._id)
+                        $scope.user.value -= avg;
+                    else
+                        $scope.friends[friendID].value -= avg;
+                }
+
             });
         }
     });
+
+
+    $scope.deficit = function (a) {
+        return -Math.min(a, 0);
+    };
+
+    $scope.excess = function (a) {
+        return Math.max(a, 0);
+    };
 
     $scope.getAll = function () {
         User.getAll().success(function (data) {
@@ -155,7 +174,7 @@ userController.controller('userController', function ($scope, $cookies, $locatio
     };
 
     $scope.addFriend = function () {
-        
+
         alert("id : " + $scope.user._id + " friend : " + $scope.friend);
         User.getByEmail($scope.friend).success(function (data) {
 
