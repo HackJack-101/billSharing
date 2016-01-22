@@ -14,11 +14,6 @@ authControllers.controller('loginController', function ($scope, $cookies, $locat
                     } else
                     {
                         $scope.hasError = true;
-                        setTimeout(function () {
-                            $scope.$apply(function () {
-                                $scope.hasError = false;
-                            });
-                        }, 1000);
                     }
                 }).
                 error(function (data) {

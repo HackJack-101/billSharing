@@ -30,18 +30,16 @@ angular.module('app.service.user', ['app'])
                     return $http.post('/api/user/', user);
                 },
                 edit: function (user) {
-                    return $http.put('/api/user/', user);
+                    return $http.put('/api/user/' + user._id, user);
                 },
                 editFriends: function (user, friends) {
-                    var friendsSTR = "friends:"+JSON.stringify(friends);
-                    alert(JSON.stringify(friends));
-                    // return $http.put('/api/user/'+ user, friendsSTR);
+                    var serialize = JSON.stringify({friends: friends});
                     return $http({
-                     method: 'PUT',
-                     url: '/api/user/'+ user,
-                     headers: {'Content-Type': "application/json"},
-                     data: friendsSTR
-                });
+                        method: 'PUT',
+                        url: '/api/user/' + user,
+                        headers: {'Content-Type': "application/json"},
+                        data: serialize
+                    });
                 },
                 delete: function (id) {
                     return $http.delete('/api/user/' + id);
