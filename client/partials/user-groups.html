@@ -8,20 +8,20 @@
             <h2 style="color: #2980b9;">Vos groupes</h2>
         </div>
 
-		<md-button class="md-primary" style="color: #2980b9;" href="/#/group">
+        <md-button class="md-primary" style="color: #2980b9;" href="/#/group">
             <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
             <span style="color: #2980b9; font-size:smaller;">Ajouter un groupe</span>
         </md-button>
-		
-		<md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
+
+        <md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Vous cherchez un groupe ?</label>
                 <input id="search-group" ng-model="queryGroup"/>
             </md-input-container>
         </md-content>
-		
+
         <md-list style="width: 100%;">
-            <md-list-item ng-repeat="group in groups | filter : queryGroup | orderBy: 'updated'" class="md-1-line" style="background-color: white;" href="/#/group/{{group._id}}">
+            <md-list-item ng-repeat="group in groups| filter : queryGroup | orderBy: 'updated'" class="md-1-line" style="background-color: white;" href="/#/group/{{group._id}}">
                 <h4>{{group.name}}</h4>
                 <md-divider></md-divider>
             </md-list-item>

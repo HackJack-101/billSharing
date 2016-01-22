@@ -21,7 +21,11 @@ groupControllers.controller('groupsController', function ($scope, $cookies, $loc
 });
 
 groupControllers.controller('groupController', function ($scope, $cookies, $location, $routeParams, Group, User) {
-    
+
+    $scope.group = {};
+    $scope.friends = [];
+    $scope.bills = [];
+    $scope.payments = [];
     // Get logged user
     $scope.user = $cookies.getObject('user');
     if ($cookies.getObject('user'))
@@ -32,33 +36,62 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
     var id = $routeParams.id;
     Group.get(id).success(function (data) {
         $scope.group = data;
-    }).error(function (data) {
-        console.log('Error: ' + JSON.stringify(data));
-    });
-
-    Group.getBills(id).success(function (data) {
-        $scope.bills = data;
-    }).error(function (data) {
-        console.log('Error: ' + JSON.stringify(data));
-    });
-
-
-
-
-        $scope.friends = [];
-        // for each id in friends, it will get more information than only "id"
-        for (var i = 0; i < $scope.user.friends.length; i++) {
-            User.get($scope.user.friends[i]).success(function (data) {
+        for (var i = 0; i < $scope.group.friends.length; i++) {
+            User.get($scope.group.friends[i]).success(function (data) {
                 $scope.friends.push(data);
 
             }).error(function (data) {
                 console.log('Error: ' + data);
             });
         }
+    }).error(function (data) {
+        console.log('Error: ' + JSON.stringify(data));
+    });
+
+    Group.getBills(id).success(function (data) {
+        $scope.bills = data;
+        for (var i = 0; i < data.length; i++)
+        {
+            User.get(data[i].owner).success(function (data) {
+                for (var j = 0; j < $scope.bills.length; j++)
+                    if ($scope.bills[j].owner == data._id)
+                        $scope.bills[j].owner = data.firstName + ' ' + data.lastName;
+            });
+        }
+    }).error(function (data) {
+        console.log('Error: ' + JSON.stringify(data));
+    });
+
+    Group.getPayments(id).success(function (data) {
+        $scope.payments = data;
+        for (var i = 0; i < data.length; i++)
+        {
+            User.get(data[i].to).success(function (data) {
+                for (var j = 0; j < $scope.payments.length; j++)
+                {
+                    if ($scope.payments[j].to == data._id)
+                        $scope.payments[j].to = data.firstName + ' ' + data.lastName;
+                    else if ($scope.payments[j].from == data._id)
+                        $scope.payments[j].from = data.firstName + ' ' + data.lastName;
+                }
+            });
+            User.get(data[i].from).success(function (data) {
+                for (var j = 0; j < $scope.payments.length; j++)
+                {
+                    if ($scope.payments[j].to == data._id)
+                        $scope.payments[j].to = data.firstName + ' ' + data.lastName;
+                    else if ($scope.payments[j].from == data._id)
+                        $scope.payments[j].from = data.firstName + ' ' + data.lastName;
+                }
+            });
+        }
+    }).error(function (data) {
+        console.log('Error: ' + JSON.stringify(data));
+    });
 
     $scope.add = function (groupToCreate) {
         var newGroup = {name: groupToCreate.name,
-                        friends: []};
+            friends: []};
         newGroup.friends.push($scope.user._id);
         Group.add(newGroup).success(function (data) {
             $scope.response = data;
@@ -79,6 +112,7 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
                     console.log('Error: ' + data);
                 });
     };
+    
     $scope.delete = function () {
         Group.delete($scope.group._id).success(function (data) {
             $scope.response = data;
@@ -89,5 +123,13 @@ groupControllers.controller('groupController', function ($scope, $cookies, $loca
                     console.log('Fail to delete group with id : ' + id + '. Error : ' + data);
                 });
     };
+    
+    $scope.autocompletes = [];
+    $scope.addAutocomplete = function () {
+      $scope.autocompletes.push({
+         oneMore: '',
+      });
+	};
+    $scope.addAutocomplete();
 
 });

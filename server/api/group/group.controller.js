@@ -2,6 +2,7 @@
 
 var Group = require('./group.model');
 var Bill = require('./../bill/bill.model');
+var Payment = require('./../payment/payment.model');
 
 exports.get = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
@@ -17,6 +18,17 @@ exports.get = function (req, res) {
 exports.getBills = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     Bill.find({group: req.params.id}, function (err, data) {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.send(JSON.stringify(data));
+        }
+    });
+};
+
+exports.getPayments = function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    Payment.find({group: req.params.id}, function (err, data) {
         if (err) {
             res.status(500).send(err);
         } else {
