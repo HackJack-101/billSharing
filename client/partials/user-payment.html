@@ -31,7 +31,7 @@
     	
         <md-input-container class="md-block">
             <label>Message pour le remboursement :</label>
-            <md-icon class="pen-icon" md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
+            <md-icon md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
             <input type="text" name="description" ng-model="addPayment.description" maxlength="250" required>
             <div ng-messages="addPaymentForm.description.$error">
             	<div ng-message="maxlength">Message trop long (max 250 caractères)</div>

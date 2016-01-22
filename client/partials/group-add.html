@@ -7,9 +7,11 @@
         <md-input-container class="md-block">
             <label>Nom du groupe :</label>
             <md-icon md-svg-src="img/group.svg" style="color: #2980b9;"></md-icon>
-            <input md-maxlength="250" type="text" name="name" ng-model="addGroup.name" ng-required="true">
+            <input type="text" name="name" ng-model="addGroup.name" md-maxlength="250" required>
+            
             <div ng-messages="addGroupForm.name.$error">
-                <div ng-message="required">Nom du groupe manquant.</div>
+            	<div ng-message="maxlength">Nom du groupe trop long (max 250 caractères)</div>
+                <div ng-message="required">Nom du groupe manquant</div>
             </div>
         </md-input-container>
 

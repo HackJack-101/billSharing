@@ -8,9 +8,11 @@
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Prénom :</label>
                 <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
-                <input md-maxlength="250" type="text" name="firstName" ng-disabled="!ctrl.disabledFirstname" ng-model="user.firstName" ng-required="true">
+                <input type="text" name="firstName" ng-disabled="!ctrl.disabledFirstname" ng-model="user.firstName" md-maxlength="250" required>
+                
                 <div ng-messages="accountForm.firstname.$error">
-                    <div ng-message="required">Prénom manquant.</div>
+                	<div ng-message="maxlength">Prénom trop long (max 250 caractères)</div>
+                    <div ng-message="required">Prénom manquant</div>
                 </div>
 
                 <md-button ng-click="ctrl.disabledFirstname = true" ng-show="!ctrl.disabledFirstname" style="background-color: white; font-size: small;">
@@ -22,9 +24,11 @@
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Nom :</label>
                 <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
-                <input md-maxlength="250" type="text" name="lastName" ng-disabled="!ctrl.disabledLastname" ng-model="user.lastName" ng-required="true">
+                <input type="text" name="lastName" ng-disabled="!ctrl.disabledLastname" ng-model="user.lastName" md-maxlength="250" required>
+                
                 <div ng-messages="accountForm.lastname.$error">
-                    <div ng-message="required">Nom manquant.</div>
+                	<div ng-message="maxlength">Nom trop long (max 250 caractères)</div>
+                    <div ng-message="required">Nom manquant</div>
                 </div>
 
                 <md-button ng-click="ctrl.disabledLastname = true" ng-show="!ctrl.disabledLastname" style="background-color: white; font-size: small;">
@@ -38,9 +42,11 @@
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Adresse mail :</label>
                 <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
-                <input md-maxlength="250" type="email" name="email" ng-disabled="!ctrl.disabledEmail" ng-model="user.email" ng-required="true">
+                <input type="email" name="email" ng-disabled="!ctrl.disabledEmail" ng-model="user.email" md-maxlength="250" required>
+                
                 <div ng-messages="accountForm.email.$error">
-                    <div ng-message="required">Adresse email manquante.</div>
+                	<div ng-message="maxlength">Adresse trop longue (max 250 caractères)</div>
+                    <div ng-message="required">Adresse email manquante</div>
                 </div>
 
                 <md-button ng-click="ctrl.disabledEmail = true" ng-show="!ctrl.disabledEmail" style="background-color: white; font-size: small;">
@@ -52,7 +58,8 @@
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Numéro de téléphone (facultatif):</label>
                 <md-icon md-svg-src="img/smartphone.svg" style="color: #2980b9;"></md-icon>
-                <input md-maxlength="10" type="text" name="phone" ng-disabled="!ctrl.disabledNumber" ng-model="user.phone" ng-required="false">
+                <input type="text" name="phone" ng-disabled="!ctrl.disabledNumber" ng-model="user.phone" md-maxlength="10" required>
+                
                 <div ng-messages="accountForm.number.$error">
                     <div ng-message="md-maxlength">Les 10 chiffres doivent se suivre : XXXXXXXXXX</div>
                 </div>
@@ -68,9 +75,11 @@
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Votre mot de passe actuel:</label>
                 <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
-                <input md-maxlength="250" type="password" name="password" ng-disabled="!ctrl.disabledPassword" ng-model="user.password" ng-required="true">
+                <input type="password" name="password" ng-disabled="!ctrl.disabledPassword" ng-model="user.password" md-maxlength="250" required>
+                
                 <div ng-messages="accountForm.password.$error">
-                    <div ng-message="required">Mot de passe manquant.</div>
+                	<div ng-message="maxlength">Mot de passe trop long (max 250 caractères)</div>
+                    <div ng-message="required">Mot de passe manquant</div>
                 </div>
 
                 <md-button ng-click="ctrl.disabledPassword = true" ng-show="!ctrl.disabledPassword" style="background-color: white; font-size: small;">
