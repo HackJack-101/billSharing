@@ -12,46 +12,42 @@
             <md-icon md-svg-src="img/plus.svg" style="color: #2980b9; width:15px;"></md-icon>
             <span style="color: #2980b9; font-size:smaller;">Ajouter une nouvelle transaction</span>
         </md-button>
-        
+
         <md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Vous cherchez une transaction ?</label>
                 <input id="search-payment" ng-model="queryPayment"/>
             </md-input-container>
-            
+
             <md-input-container class="md-block" flex-gt-sm>
-            	<label>Trier par :</label>
-            	<md-select ng-model="orderByAttribute">
-            	  <md-option value="updated" selected>
-		             Date
-		          </md-option>
-		          <md-option value="name">
-		             Nom
-		          </md-option>
-		          <md-option value="group">
-		             Groupe
-		          </md-option>
-		          <md-option value="value">
-		             Montant
-		          </md-option>
-		        </md-select>
-		    </md-input-container>
+                <label>Trier par :</label>
+                <md-select ng-model="orderByAttribute">
+                    <md-option value="updated" selected>
+                        Date
+                    </md-option>
+                    <md-option value="name">
+                        Nom
+                    </md-option>
+                    <md-option value="group">
+                        Groupe
+                    </md-option>
+                    <md-option value="value">
+                        Montant
+                    </md-option>
+                </md-select>
+            </md-input-container>
         </md-content>
 
-        <md-list style="width: 100%;" ng-controller="userController">
-            <md-list-item  ng-repeat="payment in payments | filter : queryPayment | orderBy : orderByAttribute" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
+        <md-list style="width: 100%;">
+            <md-list-item class="md-3-line"  ng-repeat="activity in activities| filter : queryActivity | orderBy: orderByAttribute" style="background-color: white;">
                 <div class="md-list-item-text" layout="column">
-                    <h3>{{ payment.description}}ouais</h3>
-                    <h4>{{ payment.updated}}12/09/1992</h4>
-                    <p>{{ payment.group}}theFamous</p>
+                    <h3 style="font-weight: bold">{{activity.name}}</h3>
+                    <i>Le {{activity.updated| date:'dd-MM-yyyy à HH:mm:ss'}}</i>
+                    <p>{{activity.type}}</p>
                 </div>
                 <div class="md-2-line md-list-item-text" layout="column" style="margin-left: 5px;">
-                    <p style="color: #409ad5;">montant</p>
-                    <h4>{{ payment.value}} {{payment.currency}}</h4>
-                </div>
-                <div class="md-2-line md-list-item-text" layout="column">
-                    <p style="color: #409ad5;">on vous doit</p>
-                    <h4 style="color: 2bbe69;">{{ transaction.montantDu}}€</h4>
+                    <p style="color: #409ad5;">Montant :</p>
+                    <h4>{{activity.value}} {{activity.currency}}</h4>
                 </div>
                 <md-divider></md-divider>
             </md-list-item>

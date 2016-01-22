@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<div ng-controller="userController">
+<div>
     <h1 class="title-form">Informations sur votre compte</h1>
 
     <form name="accountForm" ng-submit="submit()" >
@@ -9,9 +9,9 @@
                 <label>Prénom :</label>
                 <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
                 <input type="text" name="firstName" ng-disabled="!ctrl.disabledFirstname" ng-model="user.firstName" md-maxlength="250" required>
-                
+
                 <div ng-messages="accountForm.firstname.$error">
-                	<div ng-message="maxlength">Prénom trop long (max 250 caractères)</div>
+                    <div ng-message="maxlength">Prénom trop long (max 250 caractères)</div>
                     <div ng-message="required">Prénom manquant</div>
                 </div>
 
@@ -25,9 +25,9 @@
                 <label>Nom :</label>
                 <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
                 <input type="text" name="lastName" ng-disabled="!ctrl.disabledLastname" ng-model="user.lastName" md-maxlength="250" required>
-                
+
                 <div ng-messages="accountForm.lastname.$error">
-                	<div ng-message="maxlength">Nom trop long (max 250 caractères)</div>
+                    <div ng-message="maxlength">Nom trop long (max 250 caractères)</div>
                     <div ng-message="required">Nom manquant</div>
                 </div>
 
@@ -43,9 +43,9 @@
                 <label>Adresse mail :</label>
                 <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
                 <input type="email" name="email" ng-disabled="!ctrl.disabledEmail" ng-model="user.email" md-maxlength="250" required>
-                
+
                 <div ng-messages="accountForm.email.$error">
-                	<div ng-message="maxlength">Adresse trop longue (max 250 caractères)</div>
+                    <div ng-message="maxlength">Adresse trop longue (max 250 caractères)</div>
                     <div ng-message="required">Adresse email manquante</div>
                 </div>
 
@@ -59,7 +59,7 @@
                 <label>Numéro de téléphone (facultatif):</label>
                 <md-icon md-svg-src="img/smartphone.svg" style="color: #2980b9;"></md-icon>
                 <input type="text" name="phone" ng-disabled="!ctrl.disabledNumber" ng-model="user.phone" md-maxlength="10" required>
-                
+
                 <div ng-messages="accountForm.number.$error">
                     <div ng-message="md-maxlength">Les 10 chiffres doivent se suivre : XXXXXXXXXX</div>
                 </div>
@@ -76,9 +76,9 @@
                 <label>Votre mot de passe actuel:</label>
                 <md-icon md-svg-src="img/lock.svg" style="color: #2980b9;"></md-icon>
                 <input type="password" name="password" ng-disabled="!ctrl.disabledPassword" ng-model="user.password" md-maxlength="250" required>
-                
+
                 <div ng-messages="accountForm.password.$error">
-                	<div ng-message="maxlength">Mot de passe trop long (max 250 caractères)</div>
+                    <div ng-message="maxlength">Mot de passe trop long (max 250 caractères)</div>
                     <div ng-message="required">Mot de passe manquant</div>
                 </div>
 

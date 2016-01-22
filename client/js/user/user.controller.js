@@ -16,9 +16,11 @@ userController.controller('userActivityController', function ($scope, $cookies, 
     $scope.activities = [];
 
     User.getPayments(id).then(function (data) {
+        data = data.data;
         for (var i = 0; i < data.length; i++)
         {
             data[i].type = "Remboursement effectué";
+            data[i].name = data[i].description;
             $scope.activities.push(data[i]);
         }
     }).then(function () {
@@ -26,6 +28,7 @@ userController.controller('userActivityController', function ($scope, $cookies, 
             for (var i = 0; i < data.length; i++)
             {
                 data[i].type = "Remboursement reçu";
+                data[i].name = data[i].description;
                 $scope.activities.push(data[i]);
             }
         });
@@ -37,6 +40,30 @@ userController.controller('userActivityController', function ($scope, $cookies, 
                 $scope.activities.push(data[i]);
             }
         });
+    });
+
+});
+
+userController.controller('userPaymentsController', function ($scope, $cookies, $location, User) {
+
+// Get logged user
+    $scope.user = $cookies.getObject('user');
+    if ($cookies.getObject('user'))
+        $scope.user = $cookies.getObject('user');
+    else
+        $location.path("/login").replace();
+
+    var id = $scope.user._id;
+    $scope.activities = [];
+
+    User.getPayments(id).then(function (data) {
+        data = data.data;
+        for (var i = 0; i < data.length; i++)
+        {
+            data[i].type = "Remboursement effectué";
+            data[i].name = data[i].description;
+            $scope.activities.push(data[i]);
+        }
     });
 
 });

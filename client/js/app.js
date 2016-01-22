@@ -37,9 +37,9 @@ app.config(['$routeProvider',
                     templateUrl: 'partials/user-activity.html',
                     controller: 'userActivityController'
                 }).
-                when('/bills', {
-                    templateUrl: 'partials/user-bills.html',
-                    controller: ''
+                when('/payments', {
+                    templateUrl: 'partials/user-payments.html',
+                    controller: 'userPaymentsController'
                 }).
                 when('/groups', {
                     templateUrl: 'partials/user-groups.html',
@@ -71,7 +71,7 @@ app.config(['$routeProvider',
                 }).
                 when('/account', {
                     templateUrl: 'partials/user-account.html',
-                    controller: ''
+                    controller: 'userController'
                 }).
                 otherwise({
                     redirectTo: "/"
