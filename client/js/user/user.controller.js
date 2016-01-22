@@ -53,13 +53,14 @@ userController.controller('addFriendController', function ($scope, $cookies, $lo
 
     $scope.hasError = false;
     $scope.success = false;
+    $scope.alreadyAdded = false;
     $scope.lastfriend = "";
     $scope.addFriend = function () {
         User.getByEmail($scope.email).success(function (data) {
             var firstName = data.firstName;
             var lastName = data.lastName;
             $scope.lastfriend = firstName + ' ' + lastName;
-            if ($scope.user.friends.indexOf(data._id) > -1)
+            if ($scope.user.friends.indexOf(data._id) < 0)
             {
                 $scope.user.friends.push(data._id);
                 User.editFriends($scope.user._id, $scope.user.friends).success(function (data) {
