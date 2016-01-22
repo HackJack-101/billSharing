@@ -110,6 +110,10 @@ userController.controller('userController', function ($scope, $cookies, $locatio
         return Math.max(a, 0);
     };
 
+    $scope.abs = function (a) {
+        return Math.abs(a);
+    };
+
     $scope.getAll = function () {
         User.getAll().success(function (data) {
             $scope.users = data;
@@ -168,38 +172,38 @@ userController.controller('userController', function ($scope, $cookies, $locatio
             User.get($scope.user.friends[i]).success(function (data) {
                 $scope.friends.push(data);
 
-                }).error(function (data) {
-                    console.log('Error: ' + data);
-                });
-            }
+            }).error(function (data) {
+                console.log('Error: ' + data);
+            });
+        }
     };
 
     $scope.addFriend = function () {
-                
-            User.getByEmail($scope.friend).success(function (data) {
-                $scope.user.friends.push(data._id);
 
-                User.editFriends($scope.user, $scope.user.friends).success(function (data) {
-                    $scope.response = data;
-                })
-                        .error(function (data) {
-                            console.log('Error: ' + JSON.stringify(data));
-                        });
+        User.getByEmail($scope.friend).success(function (data) {
+            $scope.user.friends.push(data._id);
 
-
-                // User.edit($scope.user).success(function (data) {
-                //     $scope.response = data;
-                // })
-                //         .error(function (data) {
-                //             console.log('Error: ' + data);
-                //         });
-
-                })
+            User.editFriends($scope.user, $scope.user.friends).success(function (data) {
+                $scope.response = data;
+            })
                     .error(function (data) {
-                        console.log('Fail to add friend. Error : ' + JSON.stringify(data));
+                        console.log('Error: ' + JSON.stringify(data));
                     });
 
 
+            // User.edit($scope.user).success(function (data) {
+            //     $scope.response = data;
+            // })
+            //         .error(function (data) {
+            //             console.log('Error: ' + data);
+            //         });
+
+        })
+                .error(function (data) {
+                    console.log('Fail to add friend. Error : ' + JSON.stringify(data));
+                });
+
+
     };
-    
+
 });
