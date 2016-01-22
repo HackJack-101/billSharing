@@ -55,7 +55,7 @@ app.config(['$routeProvider',
                 }).
                 when('/group/', {
                     templateUrl: 'partials/group-add.html',
-                    controller: ''
+                    controller: 'groupController'
                 }).
                 when('/bill/', {
                     templateUrl: 'partials/bill-add.html',

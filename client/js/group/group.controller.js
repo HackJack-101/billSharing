@@ -20,7 +20,14 @@ groupControllers.controller('groupsController', function ($scope, $cookies, $loc
     });
 });
 
-groupControllers.controller('groupController', function ($scope, $routeParams, Group) {
+groupControllers.controller('groupController', function ($scope, $cookies, $location, $routeParams, Group) {
+    
+    // Get logged user
+    $scope.user = $cookies.getObject('user');
+    if ($cookies.getObject('user'))
+        $scope.user = $cookies.getObject('user');
+    else
+        $location.path("/login").replace();
 
     var id = $routeParams.id;
     Group.get(id).success(function (data) {
@@ -36,12 +43,17 @@ groupControllers.controller('groupController', function ($scope, $routeParams, G
     });
 
 
-    $scope.add = function (group) {
-        Group.add(group).success(function (data) {
+    $scope.add = function (groupToCreate) {
+        alert("hello" + JSON.stringify(groupToCreate));
+        var newGroup = {name: groupToCreate.name,
+                        friends: []};
+        newGroup.friends.push($scope.user._id);
+        Group.add(newGroup).success(function (data) {
             $scope.response = data;
+            console.log('ok: ' + JSON.stringify(data));
         })
                 .error(function (data) {
-                    console.log('Error: ' + data);
+                    console.log('Error: ' + JSON.stringify(data));
                 });
     };
 

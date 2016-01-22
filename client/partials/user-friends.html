@@ -16,12 +16,12 @@
         <md-content md-theme="docs-dark" layout-gt-sm="row" style="width: 100%; height: auto;">
             <md-input-container class="md-block" flex-gt-sm>
                 <label>Vous cherchez quelqu'un ?</label>
-                <input id="search-friend" ng-model="query"/>
+                <input id="search-friend" ng-model="queryFriend"/>
             </md-input-container>
         </md-content>
 
         <md-list style="width: 100%;" ng-init="getFriends()">
-            <md-list-item ng-repeat="friend in friends" class="md-2-line" style="background-color: white;" ng-click="goToUser({{ami.id}})"> <!-- ng-repeat="ami in ctrl.listeAmis | filter : query | orderBy : prenom" -->
+            <md-list-item ng-repeat="friend in friends | filter : queryFriend" class="md-2-line" style="background-color: white;" ng-click="goToUser({{ami.id}})"> <!-- ng-repeat="ami in ctrl.listeAmis | filter : query | orderBy : prenom" -->
                 <img alt=" {{friend.firstName}} {{ friend.lastName}}" ng-src="http://hackjack.info/randomizer/avatar{{friend._id}}" class="md-avatar" />
                 <h5>{{ friend.firstName}} {{ friend.lastName | uppercase}}</h5>
                 <p><h5> Email : <i> {{ friend.email}}</h5></i></p>
