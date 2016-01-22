@@ -51,7 +51,7 @@
                     <md-list-item style="background-color: white;" ng-repeat="friend in friends| orderBy: 'updated'" ng-hide="friend.value < 0">
                         <img alt="{{friend.firstName}} {{friend.lastName}}'s avatar" ng-src="http://hackjack.info/randomizer/avatar{{friend.id}}" class="md-avatar" />
                         <p>
-                            <b>{{friend.firstName}} {{friend.lastName}}</b>, vous lui devez : <span class="md-secondary md-hue-3"> {{friend.value}} €</span>
+                            <b>{{friend.firstName}} {{friend.lastName}}</b> : <span class="md-secondary md-hue-3"> {{friend.value}} €</span>
                         </p>
                         <md-divider></md-divider>
                     </md-list-item>
