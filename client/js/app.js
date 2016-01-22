@@ -51,7 +51,7 @@ app.config(['$routeProvider',
                 }).
                 when('/friends', {
                     templateUrl: 'partials/user-friends.html',
-                    controller: ''
+                    controller: 'userController'
                 }).
                 when('/group/', {
                     templateUrl: 'partials/group-add.html',
@@ -59,6 +59,10 @@ app.config(['$routeProvider',
                 }).
                 when('/bill/', {
                     templateUrl: 'partials/bill-add.html',
+                    controller: ''
+                }).
+                when('/payment/', {
+                    templateUrl: 'partials/user-payment.html',
                     controller: ''
                 }).
                 when('/friend/', {

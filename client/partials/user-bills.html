@@ -21,7 +21,6 @@
         </md-content>
 
         <md-list style="width: 100%;" ng-controller="userController">
-            <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;"><span>Janvier 2016</span></md-subheader>
             <md-list-item  ng-repeat="payment in payments | filter : queryPayment | orderBy : 'description'" class="md-3-line" style="background-color: white;" ng-click="voirDetailsTransaction($event)">
                 <div class="md-list-item-text" layout="column">
                     <h3>{{ payment.description}}ouais</h3>

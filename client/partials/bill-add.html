@@ -3,21 +3,37 @@
 <div>
     <h1 class="title-form">Création d'une transaction</h1>
 
-    <form id="addBillForm" name="addGroupForm" ng-submit="submit()">
-        <md-input-container class="md-block">
+    <form name="addBillForm" name="addGroupForm" ng-submit="submit()">
+    	<md-input-container class="md-block">
             <label>Nom de la transaction :</label>
-            <md-icon class="pen-icon" md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
-            <input md-maxlength="250" type="text" name="description" ng-model="addBill.description" ng-required="true">
-            <div ng-messages="addBillForm.description.$error">
+            <md-icon class="pen-icon" md-svg-src="img/pencil.svg" style="color: #2980b9;"></md-icon>
+            <input type="text" name="name" ng-model="addBill.name" md-maxlength="250" required>
+            
+            <div ng-messages="addBillForm.name.$error">
+            	<div ng-message="md-maxlength">Nom de la transaction trop long (max 250 caractères)</div>
                 <div ng-message="required">Nom de la transaction manquant</div>
             </div>
         </md-input-container>
+    	
         <md-input-container class="md-block">
-            <label>Montant de la transaction :</label>
-            <md-icon class="pen-icon" md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
-            <input md-maxlength="250" type="text" name="value" ng-model="addBill.value" ng-required="true">
+            <label>Description de la transaction :</label>
+            <md-icon md-svg-src="img/receive.svg" style="color: #2980b9;"></md-icon>
+            <input type="text" name="description" ng-model="addBill.description" md-maxlength="2" required>
+            
+            <div ng-messages="addBillForm.description.$error">
+            	<div ng-message="md-maxlength">Description de la transaction trop longue (max 250 caractères)</div>
+                <div ng-message="required">Description de la transaction manquante</div>
+            </div>
+        </md-input-container>
+        
+        <md-input-container class="md-block">
+            <label>Prix de la transaction :</label>
+            <md-icon md-svg-src="img/price.svg" style="color: #2980b9;"></md-icon>
+            <input type="text" name="value" ng-model="addBill.value" md-maxlength="20" required>
+            
             <div ng-messages="addBillForm.value.$error">
-                <div ng-message="required">Montant de la transaction manquant</div>
+            	<div ng-message="md-maxlength">Prix de la transaction trop élevé (max 20 chiffres)</div>
+                <div ng-message="required">Prix de la transaction manquant</div>
             </div>
         </md-input-container>
 

@@ -11,8 +11,10 @@
         <md-input-container class="md-block">
             <label>E-mail de votre ami :</label>
             <md-icon md-svg-src="img/mail.svg" style="color: #2980b9;"></md-icon>
-            <input md-maxlength="250" type="email" name="email" ng-model="friend" ng-required="true">
+            <input type="email" name="email" ng-model="friend" md-maxlength="250" required>
+            
             <div ng-messages="addFriendForm.mail.$error">
+            	<div ng-message="required">E-mail de votre ami trop long</div>
                 <div ng-message="required">E-mail de votre ami manquant</div>
             </div>
         </md-input-container>

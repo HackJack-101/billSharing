@@ -23,7 +23,8 @@ var alice = new User(
             lastName: "Impsum",
             email: "example@email.com",
             phone: "+33000000000",
-            password: "azerty"
+            password: "azerty",
+            friends: []
         }
 );
 var aliceID = null;
@@ -34,11 +35,49 @@ var bob = new User(
             lastName: "Lorem",
             email: "email@example.com",
             phone: "+33000000001",
-            password: "012345"
+            password: "012345",
+            friends: []
         }
 );
 var bobID = null;
 
+var dexter = new User(
+        {
+            firstName: "Dexter",
+            lastName: "Morgan",
+            email: "dex@mo.com",
+            phone: "+33000000002",
+            password: "dexterm",
+            friends: []
+        }
+);
+var dexterID = null;
+
+var allan = new User(
+        {
+            firstName: "Allan",
+            lastName: "Toiko",
+            email: "alln@toiko.com",
+            phone: "+33000000003",
+            password: "543210",
+            friends: []
+        }
+);
+var allanID = null;
+
+var jenny = new User(
+        {
+            firstName: "Jenny",
+            lastName: "Pomme",
+            email: "jenny@jenny.jenny",
+            phone: "+33000000004",
+            password: "password",
+            friends: []
+        }
+);
+var jennyID = null;
+
+//Alice
 alice.save(function (err, res) {
     if (err)
         throw err;
@@ -89,10 +128,153 @@ alice.save(function (err, res) {
                     if (err)
                         throw err;
                     console.log(res);
+
+
+                    // process.exit();
+
+                });
+            });
+        });
+    });
+});
+
+var dexterAllanJennyID;
+
+//Dexter
+dexter.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
+    dexterID = res["_id"];
+        allan.save(function (err, res) {
+        if (err)
+            throw err;
+        console.log(res);
+        allanID = res["_id"];
+        jenny.friends = [dexterID, allanID];
+                jenny.save(function (err, res) {
+                if (err)
+                    throw err;
+                console.log(res);
+                allanID = res["_id"];
+                var dexterAllanJenny = new Group(
+                {
+                    name: "Dexter & Allan & Jenny",
+                    friends: [dexterID, allanID, jennyID]
+                }
+        );
+        dexterAllanJenny.save(function (err, res)
+        {
+            if (err)
+                throw err;
+            console.log(res);
+            dexterAllanJennyID = res["_id"];
+            var billard = new Bill(
+                    {
+                        name: "Billard",
+                        description: "Un billard entre amis payé par Dexter",
+                        owner: dexterID,
+                        group: dexterAllanJennyID,
+                        currency: "EUR",
+                        value: 33
+                    }
+            );
+            billard.save(function (err, res) {
+                if (err)
+                    throw err;
+                console.log(res);
+                var piscine = new Bill(
+                        {
+                            name: "Piscine",
+                            description: "Une aprem piscine payée par Allan",
+                            owner: dexterID,
+                            group: dexterAllanJennyID,
+                            currency: "EUR",
+                            value: 21
+                        }
+                );
+                piscine.save(function (err, res) {
+                    if (err)
+                        throw err;
+                    console.log(res);
+
                     console.log("Jeu de données ajouté.");
                     process.exit();
                 });
             });
         });
     });
+});
+});
+
+// Billard Jenny -> Dexter
+var payment1 = new Payment(
+        {
+            description: "Remboursement du billard",
+            from: jennyID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 11
+        }
+);
+
+payment1.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
+});
+
+// Billard Allan -> Dexter
+var payment2 = new Payment(
+        {
+            description: "Remboursement du billard",
+            from: allanID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 11
+        }
+);
+
+payment2.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
+});
+
+// Piscine Jenny -> Dexter
+var payment3 = new Payment(
+        {
+            description: "Remboursement de la Piscine",
+            from: jennyID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 7
+        }
+);
+
+payment3.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
+});
+
+// Piscine Allan -> Dexter
+var payment4 = new Payment(
+        {
+            description: "Remboursement de la Piscine",
+            from: allanID,
+            to: dexterID,
+            group: dexterAllanJennyID,
+            currency: "EUR",
+            value: 7
+        }
+);
+
+payment4.save(function (err, res) {
+    if (err)
+        throw err;
+    console.log(res);
 });
