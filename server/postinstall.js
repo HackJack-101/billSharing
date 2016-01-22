@@ -364,7 +364,7 @@ alice.save(function(err, res) {
                                                 to: aliceID,
                                                 group: aliceJennyID,
                                                 currency: "EUR",
-                                                value: 12
+                                                value: 18
                                             });
                                             paymentCamaieu.save(function(err, res) {
                                                 if (err)

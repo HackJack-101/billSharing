@@ -17,7 +17,8 @@ md-menu-bar md-menu.md-open > button {
 
 md-content {
 	width: 980px;
-	height: 100%;
+	height: 65em;
+	overflow: inherit;
 	margin-left: auto;
  	margin-right: auto;
  	padding-left: 15px;
