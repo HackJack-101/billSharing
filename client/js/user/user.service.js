@@ -38,7 +38,7 @@ angular.module('app.service.user', ['app'])
                     // return $http.put('/api/user/'+ user, friendsSTR);
                     return $http({
                      method: 'PUT',
-                     url: '/api/user/'+ user._id,
+                     url: '/api/user/'+ user,
                      headers: {'Content-Type': "application/json"},
                      data: friendsSTR
                 });

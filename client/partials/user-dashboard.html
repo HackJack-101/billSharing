@@ -36,7 +36,7 @@
                 <md-list style="width: 100%; top: 0; left: 0; position: inherit;">
                     <md-subheader class="md-no-sticky" style="background-color: #e3e3ff;">Liste des remboursements :</md-subheader>
                     <md-list-item style="background-color: white;" ng-repeat="friend in friends| orderBy: 'updated' track by $index" ng-hide="friend.value > 0">
-                        <img alt="" ng-src="" class="md-avatar" />
+                        <img alt="" ng-src="http://hackjack.info/randomizer/avatar{{friend.id}}" class="md-avatar" />
                         <p>
                             <b>{{friend.firstName}} {{friend.lastName}}</b> vous doit : <span class="md-secondary md-hue-3"> {{friend.value}} €</span>
                         </p>
